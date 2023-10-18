@@ -1,0 +1,17 @@
+.banner-category {
+    height : 100px;
+    width : 100px;
+    background-color: #000;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.heading {
+    font-size: 40px;
+}
+.border {
+    border : 1px solid #ccc;
+    border-radius: 8px;
+    padding : 20px;
+}
