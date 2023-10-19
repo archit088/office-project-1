@@ -67,6 +67,8 @@ export default function Auth() {
           <Grid
             container
             justifyContent="center"
+            alignItems="center"
+            height="94vh"
             spacing={2}
             >
             <Grid item md={4} sm={12} xs={12}>
