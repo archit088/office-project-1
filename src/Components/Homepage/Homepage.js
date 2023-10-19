@@ -6,9 +6,7 @@ const Homepage = () => {
     return (
         <Box>
             <Navbar />
-            <Container>
-                <Banner />
-            </Container>
+            <Banner />
         </Box>
     )
 }
