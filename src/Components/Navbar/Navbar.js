@@ -184,7 +184,7 @@ export default function Navbar() {
                 component="div"
                 sx={{ display: { xs: 'none', sm: 'block' } }}
               >
-                Urban Copy
+                Simpi Shine
               </Typography>
               <Search>
                 <SearchIconWrapper>

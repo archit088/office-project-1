@@ -62,6 +62,8 @@ const Banner = () => {
                             </Grid>
                         </Box>
                     </Grid>
+
+                    <br/>
                     <Grid item md={8}>
                         <img
                             src={BannerLogo}

@@ -40,6 +40,18 @@ function Signup() {
                     // }
                 }}
             />
+              <TextField 
+                fullWidth
+                variant="outlined"
+                label="Mobile"
+                placeholder='Enter Mobile'
+                sx={{
+                    mb : '30px',
+                    // '& fieldset' : {
+                    // borderRadius : '30px',
+                    // }
+                }}
+            />
             <TextField 
                 fullWidth
                 variant="outlined"
