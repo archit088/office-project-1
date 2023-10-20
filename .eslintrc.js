@@ -4,7 +4,6 @@ module.exports = {
         "es2021": true
     },
     "extends": [
-        "extends : airbnb-base",
         "eslint:recommended",
         "plugin:react/recommended"
     ],

@@ -1,4 +1,5 @@
-import react, { useEffect, useState } from 'react';
+/* eslint-disable react/prop-types */
+import React, { useEffect, useState } from 'react';
 import { Box, Grid, Paper, Tab, Tabs, } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';

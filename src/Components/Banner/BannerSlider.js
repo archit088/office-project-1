@@ -25,7 +25,7 @@ function BannerSlider() {
                 }
             }}
             >
-            <div class='item'>
+            <div className='item'>
                 <img
                     src={image1}
                     alt="service"
@@ -36,7 +36,7 @@ function BannerSlider() {
                     }}
                 />
             </div>
-            <div class='item'>
+            <div className='item'>
                 <img
                     src={image2}
                     alt="service"
@@ -47,7 +47,7 @@ function BannerSlider() {
                     }}
                 />
             </div>
-            <div class='item'>
+            <div className='item'>
                 <img
                     src={image3}
                     alt="service"
@@ -58,7 +58,7 @@ function BannerSlider() {
                     }}
                 />
             </div>
-            <div class='item'>
+            <div className='item'>
                 <img
                     src={image4}
                     alt="service"
