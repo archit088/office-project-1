@@ -5,7 +5,6 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link, useNavigate } from 'react-router-dom'
@@ -118,23 +117,6 @@ export default function Navbar() {
                   alt="logo"
                   />
               </Link>
-              <TextField
-                placeholder='Search'
-                size="small"
-                InputProps={{
-                  endAdornment : (
-                    <InputAdornment position='end'>
-                      <SearchIcon />
-                    </InputAdornment>
-                  )
-                }}
-                sx={{
-                  ml: '20px',
-                  '& fieldset' : {
-                    borderRadius : '30px'
-                  }
-                }}
-              />
               <Box sx={{ flexGrow: 1 }} />
               <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                 {
@@ -173,7 +155,7 @@ export default function Navbar() {
         {renderMobileMenu}
         {renderMenu}
       </Box>
-      <Box sx={{height : '60px'}} />
+      <Box sx={{height : '80px'}} />
     </Box>
   );
 }
