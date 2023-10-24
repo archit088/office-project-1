@@ -8,7 +8,7 @@ import Image2 from '../../../Assets/Images/image2.jpg'
 import Image3 from '../../../Assets/Images/image3.jpg'
 import Image4 from '../../../Assets/Images/image4.jpg'
 import Image5 from '../../../Assets/Images/image1.jpg'
-import SingleCategory from './SingleCategory';
+import SingleService from './SingleService';
 
 const list = [
     {
@@ -49,12 +49,12 @@ const list = [
     },
 ]
 
-function CategoryList() {
+function ServiceList() {
     return (
         <Box
             sx={{
                 textAlign : 'center',
-                m : '50px 0'
+                m :'50px 0'
             }}
         >
             <Container>
@@ -75,12 +75,12 @@ function CategoryList() {
                             pb : '5px'
                             }}
                         >
-                            Latest Categories
+                            Latest Services
                     </Typography>
                     <Box 
                         sx={{
                             position : 'absolute',
-                            width : '220px',
+                            width : '190px',
                             height : '2px',
                             background : '#000',
                             bottom : '0px'
@@ -97,7 +97,7 @@ function CategoryList() {
                                 item md={4}
                                 key={i.id}
                             >
-                                <SingleCategory 
+                                <SingleService 
                                     item={i}
                                 />
                             </Grid>
@@ -146,4 +146,4 @@ function CategoryList() {
     )
 }
 
-export default CategoryList
+export default ServiceList
