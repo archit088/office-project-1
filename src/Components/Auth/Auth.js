@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, Grid, Paper, Tab, Tabs, } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
-import Image1 from '../../Assets/Images/image1.jpg'
+import Image5 from '../../Assets/Images/image5.jpg'
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
 
@@ -52,7 +52,7 @@ export default function Auth() {
   return (
       <Box
         sx={{
-          backgroundImage : `url(${Image1})`,
+          backgroundImage : `url(${Image5})`,
           height : '100vh',
           backgroundRepeat : 'no-repeat',
           backgroundSize : 'cover'

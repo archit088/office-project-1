@@ -7,45 +7,43 @@ import Image1 from '../../../Assets/Images/image1.jpg'
 import Image2 from '../../../Assets/Images/image2.jpg'
 import Image3 from '../../../Assets/Images/image3.jpg'
 import Image4 from '../../../Assets/Images/image4.jpg'
-import Image5 from '../../../Assets/Images/image1.jpg'
+// import Image5 from '../../../Assets/Images/image1.jpg'
 import SingleCategory from './SingleCategory';
+import Image6 from '../../../Assets/Images/image6.jpg'
+import Image7 from '../../../Assets/Images/image7.jpg'
+
+
 
 const list = [
     {
         id : 1,
-        name :  'Category 1',
-        text : 'test text 1',
+        name :  'Construction',
         icon : Image1
     },
     {
         id : 2,
-        name :  'Category 2',
-        text : 'test text 1',
+        name :  'Services',
         icon : Image2
     },
     {
         id : 3,
-        name :  'Category 3',
-        text : 'test text 1',
+        name :  'Customer Service',
         icon : Image3
     },
     {
         id : 4,
-        name :  'Category 4',
-        text : 'test text 1',
+        name :  'Hospital',
         icon : Image4
     },
     {
         id : 5,
         name :  'Category 5',
-        text : 'test text 1',
-        icon : Image5
+        icon : Image7
     },
     {
         id : 6,
-        name :  'Category 6',
-        text : 'test text 1',
-        icon : Image1
+        name :  'Home Services',
+        icon : Image6
     },
 ]
 
