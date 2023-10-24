@@ -10,6 +10,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link, useNavigate } from 'react-router-dom'
 import { Button, Container, InputAdornment, TextField } from '@mui/material';
 import Logo from '../../Assets/Images/slogo.png'
+import NavbarLower from './NavbarLower';
 
 export default function Navbar() {
   const navigate = useNavigate()

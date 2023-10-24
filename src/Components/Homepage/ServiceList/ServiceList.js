@@ -7,52 +7,54 @@ import Image1 from '../../../Assets/Images/image1.jpg'
 import Image2 from '../../../Assets/Images/image2.jpg'
 import Image3 from '../../../Assets/Images/image3.jpg'
 import Image4 from '../../../Assets/Images/image4.jpg'
-// import Image5 from '../../../Assets/Images/image1.jpg'
-import SingleCategory from './SingleCategory';
-import Image6 from '../../../Assets/Images/image6.jpg'
-import Image7 from '../../../Assets/Images/image7.jpg'
-
-
+import Image5 from '../../../Assets/Images/image1.jpg'
+import SingleService from './SingleService';
 
 const list = [
     {
         id : 1,
-        name :  'Construction',
+        name :  'Category 1',
+        text : 'test text 1',
         icon : Image1
     },
     {
         id : 2,
-        name :  'Services',
+        name :  'Category 2',
+        text : 'test text 1',
         icon : Image2
     },
     {
         id : 3,
-        name :  'Customer Service',
+        name :  'Category 3',
+        text : 'test text 1',
         icon : Image3
     },
     {
         id : 4,
-        name :  'Hospital',
+        name :  'Category 4',
+        text : 'test text 1',
         icon : Image4
     },
     {
         id : 5,
         name :  'Category 5',
-        icon : Image7
+        text : 'test text 1',
+        icon : Image5
     },
     {
         id : 6,
-        name :  'Home Services',
-        icon : Image6
+        name :  'Category 6',
+        text : 'test text 1',
+        icon : Image1
     },
 ]
 
-function CategoryList() {
+function ServiceList() {
     return (
         <Box
             sx={{
                 textAlign : 'center',
-                m : '50px 0'
+                m :'50px 0'
             }}
         >
             <Container>
@@ -73,12 +75,12 @@ function CategoryList() {
                             pb : '5px'
                             }}
                         >
-                            Latest Categories
+                            Latest Services
                     </Typography>
                     <Box 
                         sx={{
                             position : 'absolute',
-                            width : '220px',
+                            width : '190px',
                             height : '2px',
                             background : '#000',
                             bottom : '0px'
@@ -95,7 +97,7 @@ function CategoryList() {
                                 item md={4}
                                 key={i.id}
                             >
-                                <SingleCategory 
+                                <SingleService 
                                     item={i}
                                 />
                             </Grid>
@@ -144,4 +146,4 @@ function CategoryList() {
     )
 }
 
-export default CategoryList
+export default ServiceList
