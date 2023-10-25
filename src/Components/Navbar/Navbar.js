@@ -8,7 +8,7 @@ import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link, useNavigate } from 'react-router-dom'
-import { Button, Container, InputAdornment, TextField } from '@mui/material';
+import { Button, Container } from '@mui/material';
 import Logo from '../../Assets/Images/slogo.png'
 import NavbarLower from './NavbarLower';
 
@@ -157,6 +157,7 @@ export default function Navbar() {
         {renderMenu}
       </Box>
       <Box sx={{height : '80px'}} />
+      <NavbarLower />
     </Box>
   );
 }

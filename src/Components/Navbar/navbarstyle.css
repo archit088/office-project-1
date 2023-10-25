@@ -15,6 +15,6 @@
 
 .list:hover .list_category {
     display : block;
-    top : 110px;
+    top : 130px;
     opacity : 1;
 }
