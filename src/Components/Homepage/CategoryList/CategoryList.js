@@ -10,7 +10,10 @@ import Image4 from '../../../Assets/Images/image4.jpg'
 // import Image5 from '../../../Assets/Images/image1.jpg'
 import SingleCategory from './SingleCategory';
 import Image6 from '../../../Assets/Images/image6.jpg'
-import Image7 from '../../../Assets/Images/image7.jpg'
+//import Image7 from '../../../Assets/Images/image7.jpg'
+import Image9 from '../../../Assets/Images/image9.jpg'
+
+
 
 
 
@@ -37,8 +40,8 @@ const list = [
     },
     {
         id : 5,
-        name :  'Category 5',
-        icon : Image7
+        name :  'Painter',
+        icon : Image9
     },
     {
         id : 6,

@@ -30,7 +30,7 @@ function Footer() {
                                 fontSize : '18px'
                             }}
                         >
-                            Test Heading 1
+                           Helpful Links
                         </Typography>
                         <Typography
                             variant="p"
@@ -40,7 +40,7 @@ function Footer() {
                                 mt : '10px'
                             }}
                         >
-                            Text 1
+                            Categories
                         </Typography>
                         <Typography
                             variant="p"
@@ -50,7 +50,7 @@ function Footer() {
                                 mt : '10px'
                             }}
                         >
-                            Text 2
+                         Reviews
                         </Typography>
                         <Typography
                             variant="p"
@@ -60,7 +60,7 @@ function Footer() {
                                 mt : '10px'
                             }}
                         >
-                            Text 3
+                          Listing
                         </Typography>
                         <Typography
                             variant="p"
@@ -70,7 +70,7 @@ function Footer() {
                                 mt : '10px'
                             }}
                         >
-                            Text 4
+                            Contact Us
                         </Typography>
                     </Grid>
                     <Grid
@@ -96,7 +96,7 @@ function Footer() {
                                 mt : '10px'
                             }}
                         >
-                            Text 1
+                           About Us
                         </Typography>
                         <Typography
                             variant="p"
@@ -106,7 +106,7 @@ function Footer() {
                                 mt : '10px'
                             }}
                         >
-                            Text 2
+                            Awards
                         </Typography>
                         <Typography
                             variant="p"
@@ -116,18 +116,9 @@ function Footer() {
                                 mt : '10px'
                             }}
                         >
-                            Text 3
+                            Privacy Policy
                         </Typography>
-                        <Typography
-                            variant="p"
-                            sx={{
-                                display : 'block',
-                                color: '#fff',
-                                mt : '10px'
-                            }}
-                        >
-                            Text 4
-                        </Typography>
+                       
                     </Grid>
                     <Grid
                         item
@@ -142,7 +133,7 @@ function Footer() {
                                 fontSize : '18px'
                             }}
                         >
-                            Test Heading 1
+                          Contact Us
                         </Typography>
                         <Typography
                             variant="p"
@@ -152,8 +143,12 @@ function Footer() {
                                 mt : '10px'
                             }}
                         >
-                            Text 1
+                           Address : B 299 & 300,Palam Extension, Road,
+                             Ramphal Chowk Rd,,
+                            Sector 7 Dwarka, NEW DELHI - 110075
                         </Typography>
+                      
+                        
                         <Typography
                             variant="p"
                             sx={{
@@ -162,27 +157,7 @@ function Footer() {
                                 mt : '10px'
                             }}
                         >
-                            Text 2
-                        </Typography>
-                        <Typography
-                            variant="p"
-                            sx={{
-                                display : 'block',
-                                color: '#fff',
-                                mt : '10px'
-                            }}
-                        >
-                            Text 3
-                        </Typography>
-                        <Typography
-                            variant="p"
-                            sx={{
-                                display : 'block',
-                                color: '#fff',
-                                mt : '10px'
-                            }}
-                        >
-                            Text 4
+                          9811984442 , 0110298736
                         </Typography>
                     </Grid>
                     <Grid

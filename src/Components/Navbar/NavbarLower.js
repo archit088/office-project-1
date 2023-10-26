@@ -28,7 +28,7 @@ function NavbarLower() {
                         sx={{
                             fontWeight : 600
                         }}
-                    >Main Category 1</Typography>
+                    >Home Services</Typography>
                     <KeyboardArrowDownIcon sx={{ml : '5px'}}/>
                     <Paper
                         className='list_category'
@@ -54,7 +54,7 @@ function NavbarLower() {
                                     mt : '5px'
                                 }}
                             >
-                                Service 1
+                                cooking
                             </Typography>
                         </a>
                         <a
@@ -68,7 +68,7 @@ function NavbarLower() {
                                     mt : '5px'
                                 }}
                             >
-                                Service 1
+                              cleaning
                             </Typography>
                         </a>
                         <a
@@ -82,7 +82,7 @@ function NavbarLower() {
                                     mt : '5px'
                                 }}
                             >
-                                Service 1
+                             washing
                             </Typography>
                         </a>
                     </Paper>
