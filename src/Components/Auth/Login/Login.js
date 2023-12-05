@@ -11,6 +11,7 @@ function Login() {
                     fontSize : '1.5rem',
                     fontWeight : '600',
                     m : '20px 0'
+               
                 }}
                 >
                 Login
@@ -19,6 +20,7 @@ function Login() {
                 fullWidth
                 variant="outlined"
                 label="Email"
+                size="small"
                 placeholder='Enter Email address'
                 sx={{
                     mb : '30px',
@@ -32,6 +34,7 @@ function Login() {
                 fullWidth
                 variant="outlined"
                 label="Password"
+                size="small"
                 placeholder='Enter Password'
                 sx={{
                     mb : '30px',

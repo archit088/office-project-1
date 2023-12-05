@@ -37,7 +37,7 @@ const Banner = () => {
                                         mb : '20px'
                                     }}
                                 >
-                                    Test Heading about the company
+                                   MY Indian Company Providing good and best services
                                 </Typography>
                                 <Typography 
                                     variant="h1"
@@ -46,7 +46,7 @@ const Banner = () => {
                                         color : '#999'
                                     }}
                                 >
-                                    Test Subheading about the company
+                                   home services,baby care services,security guard services.
                                 </Typography>
                             </Box>
                         </Box>

@@ -19,6 +19,7 @@ function Signup() {
                 fullWidth
                 variant="outlined"
                 label="Full Name"
+                size="small"
                 placeholder='Enter Full Name'
                 sx={{
                     mb : '30px',
@@ -32,6 +33,7 @@ function Signup() {
                 fullWidth
                 variant="outlined"
                 label="Email"
+                size="small"
                 placeholder='Enter Email'
                 sx={{
                     mb : '30px',
@@ -44,6 +46,7 @@ function Signup() {
                 fullWidth
                 variant="outlined"
                 label="Mobile"
+                size="small"
                 placeholder='Enter Mobile'
                 sx={{
                     mb : '30px',
@@ -57,6 +60,7 @@ function Signup() {
                 variant="outlined"
                 label="Password"
                 type="password"
+                size="small"
                 placeholder='Enter Password'
                 sx={{
                     mb : '30px',
@@ -70,6 +74,7 @@ function Signup() {
                 variant="outlined"
                 label="Confirm Password"
                 type="password"
+                size="small"
                 placeholder='Enter Confirm Password'
                 sx={{
                     mb : '30px',

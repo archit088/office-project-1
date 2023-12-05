@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom'
 import Logo from '../../Assets/Images/slogo.png'
 import { Box, Button, Container, Grid, Paper, Toolbar, Typography } from '@mui/material'
 import Footer from '../Homepage/Footer/Footer'
-import Image1 from '../../Assets/Images/image1.jpg'
+import Image1 from '../../Assets/Images/image11.png'
+import Image2 from '../../Assets/Images/image12.png'
+
+
+
 
 const teamList = [
     {
@@ -16,7 +20,7 @@ const teamList = [
     {
         id : 1,
         name : 'Person 2',
-        image : Image1,
+        image : Image2,
         designation : 'CPTO & Co Founder, Simpi Web',
         description : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s'
     },
@@ -78,7 +82,7 @@ function AboutPage() {
                             color : '#666'
                         }}
                     >
-                    Simpi Web is a technology platform offering a variety of services at home. Customers use our platform to book services such as beauty treatments, haircuts, massage therapy, cleaning, plumbing, carpentry, appliance repair, painting etc. These services are delivered in the comfort of their home and at a time of their choosing. We promise our customers a high quality, standardised and reliable service experience. To fulfill this promise, we work closely with our hand-picked service partners, enabling them with technology, training, products, tools, financing, insurance and brand, helping them succeed and deliver on this promise. 
+                    Simpi Web is a technology platform offering a variety of services at home. Customers use our platform to book services such as beauty treatments, haircuts, massage therapy, cleaning, plumbing, carpentry, appliance repair, painting etc. These services are delivered in the comfort of their home and at a time of their choosing. We promise our customers a high quality, standardised and reliable service experience. To fulfill this promise, we work closely with our hand-picked service partners, enabling them with technology, training, products, tools, financing, insurance and brand, helping them succeed and deliver on this promise. Located in Faridabad, India, we, Suisilai is a prominent Tailoring services provider who provides premium quality stitching services. We are engaged in providing high-quality, affordable bespoke tailoring services at your doorstep that you are sure to like. We provide custom tailoring for Kids’ and Women’s wear. According to the past few years, fashion trend now changing day by day and everyone wants a unique outfit to look beautiful so you don’t need to go anywhere for stitching, we are here to help you by providing the best tailoring service. Fashion is not just about the visual appeal of the apparel you wear, but it is also about the great feel and comfort it inspires in you. We are pioneers in craftsmanship, and we don’t compromise on quality when it comes to your perfect fit and style. Describe your choice and watch it come to life. The premium feel of our designed outfits is owing to their meticulous tailoring from tailors. Each outfit designed is the result of full-scale discussions focused on better understanding you; as a result, each outfit is as unique as you are.
                     </Typography>
                     <Box
                         sx={{
@@ -210,67 +214,68 @@ function AboutPage() {
                         spacing={2}
                     >
                         {
-                            teamList.map(t=> (
-                                <Grid
-                                    item
-                                    md={4}
-                                    sm={12}
-                                    xs={12}
-                                    key={`team-user-${t.id}`}
-                                >
-                                    <Paper
-                                        sx={{
-                                            p : '20px'
-                                        }}
+                            teamList.map(t=> {
+                                return (
+                                    <Grid
+                                        item
+                                        md={4}
+                                        sm={12}
+                                        xs={12}
+                                        key={`team-user-${t.id}`}
                                     >
-                                        <Box
+                                        <Paper
                                             sx={{
-                                                borderRadius : '50%',
-                                                overflow : 'hidden',
-                                                width : '150px',
-                                                height : '150px',
-                                                margin : '0 auto'
+                                                p: '20px'
                                             }}
                                         >
-                                            <img 
-                                                src={t.image} 
-                                                alt={`${t.name}-image`}
-                                                style={{width: "200px", height: "200px"}}
-                                                />
-                                        </Box>
-                                        <Typography
-                                            variant="p"
-                                            sx={{
-                                                display : "block",
-                                                fontSize : '20px',
-                                                mt : '5px'
-                                            }}
-                                        >
-                                            {t.name}
-                                        </Typography>
-                                        <Typography
-                                            variant="p"
-                                            sx={{
-                                                display : 'block',
-                                                fontSize : '16px',
-                                                mt : '5px'
-                                            }}
-                                        >
-                                            {t.designation}
-                                        </Typography>
-                                        <Typography
-                                            variant="p"
-                                            sx={{
-                                                display : 'block',
-                                                fontSize : '18px',
-                                                margin : '20px 0'
-                                            }}
-                                        >
-                                            {t.description}
-                                        </Typography>
-                                    </Paper>
-                                </Grid>
-                            ))
+                                            <Box
+                                                sx={{
+                                                    borderRadius: '50%',
+                                                    overflow: 'hidden',
+                                                    width: '150px',
+                                                    height: '150px',
+                                                    margin: '0 auto'
+                                                }}
+                                            >
+                                                <img
+                                                    src={t.image}
+                                                    alt={`${t.name}-image`}
+                                                    style={{ width: "200px", height: "200px" }} />
+                                            </Box>
+                                            <Typography
+                                                variant="p"
+                                                sx={{
+                                                    display: "block",
+                                                    fontSize: '20px',
+                                                    mt: '5px'
+                                                }}
+                                            >
+                                                {t.name}
+                                            </Typography>
+                                            <Typography
+                                                variant="p"
+                                                sx={{
+                                                    display: 'block',
+                                                    fontSize: '16px',
+                                                    mt: '5px'
+                                                }}
+                                            >
+                                                {t.designation}
+                                            </Typography>
+                                            <Typography
+                                                variant="p"
+                                                sx={{
+                                                    display: 'block',
+                                                    fontSize: '18px',
+                                                    margin: '20px 0'
+                                                }}
+                                            >
+                                                {t.description}
+                                            </Typography>
+                                        </Paper>
+                                    </Grid>
+                                )
+                            })
                         }
                     </Grid>
                 </Paper>

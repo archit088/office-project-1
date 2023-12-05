@@ -56,6 +56,7 @@ export default function Auth() {
           height : '100vh',
           backgroundRepeat : 'no-repeat',
           backgroundSize : 'cover'
+          
         }}
       >
         <Box
@@ -64,7 +65,9 @@ export default function Auth() {
             background : 'rgba(0,0,0,0.5)'
           }}
         >
-          <Navbar />
+          <Navbar 
+            lower={false}
+          />
           <Grid
             container
             justifyContent="center"
@@ -78,7 +81,8 @@ export default function Auth() {
                   mt : '20px',
                   p : '20px',
                   textAlign : 'center',
-                  borderRadius : '15px'
+                  borderRadius : '15px',
+                  // backgroundImage :'linear-gradient(#C70039, white)'
                 }}>
                   <Box
                     sx={{

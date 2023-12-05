@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,10 +10,10 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link, useNavigate } from 'react-router-dom'
 import { Button, Container } from '@mui/material';
-import Logo from '../../Assets/Images/slogo.png'
+import Logo from '../../Assets/Images/slogo11.png'
 import NavbarLower from './NavbarLower';
 
-export default function Navbar() {
+export default function Navbar({lower}) {
   const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = React.useState(null);
   const loggedIn = false;
@@ -105,9 +106,13 @@ export default function Navbar() {
   );
 
   return (
-    <Box>
+    <Box
+      sx={{
+        backgroundColor : 'primary'
+      }}
+    >
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="fixed" color="default">
+        <AppBar position="fixed" color="primary">
           <Container>
             <Toolbar>
               <Link
@@ -116,6 +121,8 @@ export default function Navbar() {
                 <img
                   src={Logo}
                   alt="logo"
+                  height={70}
+                  width={70}
                   />
               </Link>
               <Box sx={{ flexGrow: 1 }} />
@@ -131,11 +138,11 @@ export default function Navbar() {
                     aria-haspopup="true"
                     onClick={handleProfileMenuOpen}
                     color="inherit"
-                  >
+                  > 
                     <AccountCircle />
                   </IconButton>
                   :
-                <Button variant="outlined" onClick={handleLogin}>Login/Sign Up</Button>
+                <Button variant="outlined" color="secondary" onClick={handleLogin}>Login/Sign Up</Button>
                 }
               </Box>
               <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
@@ -157,7 +164,19 @@ export default function Navbar() {
         {renderMenu}
       </Box>
       <Box sx={{height : '80px'}} />
-      <NavbarLower />
+      {
+        lower && (
+          <NavbarLower />
+        )
+      }
     </Box>
   );
+}
+
+Navbar.defaultProps = {
+  lower : true
+}
+
+Navbar.propTypes = {
+  lower : PropTypes.bool
 }

@@ -7,7 +7,7 @@ import About from './About/About'
 import Footer from './Footer/Footer'
 import ServiceList from './ServiceList/ServiceList'
 import TopRatings from './TopRatings/TopRatings'
-
+ 
 
 const Homepage = () => {
     return (
@@ -18,8 +18,10 @@ const Homepage = () => {
             <ServiceList />
             <TopRatings />
             <About />
-            <CategoryList />
+            {/* <CategoryList /> */}
             <Footer />
+            
+         
         </Box>
     )
 }

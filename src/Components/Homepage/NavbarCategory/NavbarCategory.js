@@ -13,6 +13,7 @@ const NavbarCategory = () => {
                         display : 'flex',
                         alignItems : 'center',
                         justifyContent : 'space-between'
+                        
                     }}
                 >
                     <TextField

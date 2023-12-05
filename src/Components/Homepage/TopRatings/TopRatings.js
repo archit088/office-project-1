@@ -78,6 +78,7 @@ function TopRatings() {
                             borderBottom : '1px solid #ccc',
                             textAlign : 'left',
                             pb : '5px'
+                            
                             }}
                         >
                             Latest Ratings
