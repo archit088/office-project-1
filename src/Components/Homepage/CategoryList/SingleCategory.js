@@ -17,7 +17,7 @@ function SingleCategory({item}) {
             <Box
                 sx={{
                     height : '200px',
-                    backgroundImage : `url(${item.icon})`,
+                    backgroundImage : `url(${item.files[0].file})`,
                     backgroundSize : 'cover'
                 }}
             />
@@ -41,7 +41,7 @@ function SingleCategory({item}) {
                     fontSize : '14px'
                 }}
             >
-                {item.text}
+                {item.description}
             </Typography>
         </Paper>
     )

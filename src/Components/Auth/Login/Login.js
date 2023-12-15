@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Typography, TextField, Button} from '@mui/material'
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 
 function Login() {
     return (
@@ -19,9 +19,9 @@ function Login() {
             <TextField 
                 fullWidth
                 variant="outlined"
-                label="Email"
+                label="Phone"
                 size="small"
-                placeholder='Enter Email address'
+                placeholder='Enter mobile number'
                 sx={{
                     mb : '30px',
                     // '& fieldset' : {
@@ -30,7 +30,7 @@ function Login() {
                     // }
                 }}
             />
-            <TextField 
+            {/* <TextField 
                 fullWidth
                 variant="outlined"
                 label="Password"
@@ -42,11 +42,11 @@ function Login() {
                     // borderRadius : '30px',
                     // }
                 }}
-            />
+            /> */}
             <Button
                 variant="contained"
                 >
-                Login
+               proceed
             </Button>
             <Box
                 display="flex"
@@ -57,11 +57,11 @@ function Login() {
                 }}
             >
                 <Typography variant="p">New user, </Typography>
-                <Link
+                {/* <Link
                     to='/signup'
                 >
                     Signup
-                </Link>
+                </Link> */}
             </Box>
         </Box>
     )

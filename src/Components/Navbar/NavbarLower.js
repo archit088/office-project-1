@@ -80,7 +80,7 @@ function NavbarLower() {
                             </Typography>
                         </a>
                         <a
-                            href="#"
+                            href="Subwashing"
                             style={{
                                 textDecoration : 'none'
                             }}
@@ -259,14 +259,14 @@ function NavbarLower() {
                     ml="20px"
                     className="list"
                 >
-                    <Typography
+                    {/* <Typography
                         variant="p"
                         sx={{
                             fontWeight : 600
                         }}
                     >Old age care services
                     </Typography>
-                    <KeyboardArrowDownIcon sx={{ml : '5px'}}/>
+                    <KeyboardArrowDownIcon sx={{ml : '5px'}}/> */}
                     <Paper
                         className='list_category'
                     >

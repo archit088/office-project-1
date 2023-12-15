@@ -37,7 +37,7 @@ const Banner = () => {
                                         mb : '20px'
                                     }}
                                 >
-                                   MY Indian Company Providing good and best services
+                                   My Indian Company Providing good and best services
                                 </Typography>
                                 <Typography 
                                     variant="h1"

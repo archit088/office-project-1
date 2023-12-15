@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
-import { Box, Grid, Paper, Tab, Tabs, } from '@mui/material';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Box, Grid, Paper } from '@mui/material';
+import {  useLocation } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Image5 from '../../Assets/Images/image5.jpg'
 import Login from './Login/Login';
@@ -28,18 +28,18 @@ function TabPanel(props) {
 }
 
 export default function Auth() {
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const location = useLocation()
     const [value, setValue] = useState(0)
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-        if(newValue === 0){
-            navigate('/login')
-        }else{
-            navigate('/signup')
-        }
-    }
+    // const handleChange = (event, newValue) => {
+    //     setValue(newValue);
+    //     if(newValue === 0){
+    //         navigate('/login')
+    //     }else{
+    //         navigate('/signup')
+    //     }
+    // }
 
   useEffect(()=>{
     if(location.pathname === '/signup'){
@@ -91,7 +91,7 @@ export default function Auth() {
                       overflow : 'hidden'
                     }}
                   >
-                    <Tabs 
+                    {/* <Tabs 
                       value={value} 
                       onChange={handleChange} 
                       centered 
@@ -106,7 +106,7 @@ export default function Auth() {
                       >
                       <Tab label="Log In" />
                       <Tab label="Sign Up" />
-                    </Tabs>
+                    </Tabs> */}
                   </Box>
                     <TabPanel value={value} index={0}>
                       <Login />

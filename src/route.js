@@ -10,7 +10,8 @@ import Awardpage from "./Components/Awards/Awards";
 import Contactpage from "./Components/Contact/Contact";
 import Privacypolicy from "./Components/Privacypolicy/Privacypolicy";
 import SubCategory  from   "./Components/SubCategorypage/SubCategory";
-
+import Subwashing from "./Components/Subwashing/Subwashing";
+import Formdeatails from "./Components/Formdetails/Formdetails";
 
 const router = createBrowserRouter([
   {
@@ -21,10 +22,10 @@ const router = createBrowserRouter([
     path: "login",
     element: <Auth />,
   },
-  {
-    path: "signup",
-    element: <Auth />,
-  },
+  // {
+  //   path: "signup",
+  //   element: <Auth />,
+  // },
   {
     path: "about-us",
     element: <AboutPage />,
@@ -45,10 +46,15 @@ const router = createBrowserRouter([
     path:"SubCategory-page",
     element:<SubCategory/>
 },
-// {
-//   path : "SubServices",
-//   element :<SubServices/>
-// }
+{
+  path:"Subwashing",
+  element:<Subwashing/>
+},
+{
+  path:"formdeatails",
+  element:<Formdeatails/>
+}
+
 ]);
 
 const Approute = () => {

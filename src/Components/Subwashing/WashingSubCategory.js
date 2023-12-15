@@ -8,7 +8,7 @@ import CustomDialogTitle from '../Common/DialogTitle';
 import cookingsub from '../../Assets/Images/cookingsub.jpg'
 // import BannerSlider from '../Banner/BannerSlider';
 
-function SingleSubCategory({ item }) {
+function WashingSubCategory({ item }) {
     const [open, setOpen] = useState(false)
 
     const handleOpen = () => {
@@ -65,9 +65,8 @@ function SingleSubCategory({ item }) {
                         <Button
                             variant="contained"
                             size="small"
-                            onClick={handleOpen}
                         >
-                          Book Now
+                           Add
                         </Button>
                     </Box>
                     <Box
@@ -131,7 +130,7 @@ function SingleSubCategory({ item }) {
             </Paper>
             <Dialog
                 open={open}
-                maxWidth="xs"
+                maxWidth="sm"
                 fullWidth
             >
                 <CustomDialogTitle onClose={handleClose}>Cooking Service</CustomDialogTitle>
@@ -281,8 +280,8 @@ function SingleSubCategory({ item }) {
     )
 }
 
-SingleSubCategory.propTypes = {
+WashingSubCategory.propTypes = {
     item : PropTypes.objectOf(PropTypes.any).isRequired
 }
 
-export default SingleSubCategory
+export default WashingSubCategory

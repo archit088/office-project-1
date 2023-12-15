@@ -1,21 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import StarIcon from '@mui/icons-material/Star';
 import Navbar from '../Navbar/Navbar'
 // import Banner from '../Banner/Banner'
 import Footer from '../Homepage/Footer/Footer'
-import SingleSubCategory from './SingleSubCategory'
-import { Box, Button, Container, Dialog, DialogActions, DialogContent, Grid, Paper, Typography } from '@mui/material'
+import WashingSubCategory from './WashingSubCategory'
+import { Box, Container, Grid, Paper, Typography } from '@mui/material'
 import BiotechIcon from '@mui/icons-material/Biotech';
 import cookingsub from '../../Assets/Images/cookingsub.jpg'
 import cleaningsub from '../../Assets/Images/cleaningsub.jpg'
 import Image2 from '../../Assets/Images/image2.jpg'
 import Image4 from '../../Assets/Images/image4.jpg'
 import BannerSlider from '../Banner/BannerSlider';
-import CustomDialogTitle from '../Common/DialogTitle';
 // import Image9 from '../../Assets/Images/image9.jpg'
-// import Image6 from '../../Assets/Images/image6.jpg'
+// import Image6 from '../../Assets/Images/image6.jpg'[]
 
-const serviceList = [
+const SubserviceList = [
     {
         id  : 1,
         serviceName : 'Service 1',
@@ -48,7 +47,7 @@ const serviceList = [
     },
 ]
 
-const list = [
+const sublist = [
     {
        
         id : 1,
@@ -111,7 +110,6 @@ const list = [
                 headText : 'Lorem Ipsum is simply dummy text',
                 text : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
             },
-            
         ]
     },
     {
@@ -134,21 +132,12 @@ const list = [
                 text : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
             },
         ]
-    },
+    }
    
 ]
 
-function SubCategory(){
-    const [open, setOpen] = useState(false)
-
-    const handleOpen = () => {
-        setOpen(true)
-    }
-
-    const handleClose = () => {
-        setOpen(false)
-    }
-
+function Subwashing(){
+    
     return(
         <>
             <Navbar/>
@@ -202,7 +191,7 @@ function SubCategory(){
                                 Select a Service
                             </Typography>
                         {
-                            serviceList.map(s=> (
+                            SubserviceList.map(s=> (
                                 <Box
                                     key={s.id}
                                     sx={{
@@ -261,15 +250,14 @@ function SubCategory(){
                         spacing={2}
                     >
                         {
-                            list.map((item)=> (
+                            sublist.map((item)=> (
                                 <Grid 
                                     item
                                     md={4}
                                     key={item.id}
                                 >
-                                    <SingleSubCategory 
+                                    <WashingSubCategory 
                                         item={item}
-                                        handleOpen={handleOpen}
                                     />
                                 </Grid>
                             ))
@@ -278,25 +266,12 @@ function SubCategory(){
                 </Container>
             </Box>
             <Footer/>
-            <Dialog
-                open={open}
-                maxWidth="sm"
-                fullWidth
-            >
-                <CustomDialogTitle onClose={handleClose}>Book Service</CustomDialogTitle>
-                <DialogContent>
-                    <Typography>test</Typography>
-                </DialogContent>
-                <DialogActions>
-                    <Button>Save</Button>
-                </DialogActions>
-            </Dialog>
         </>
     )
 }
 
-SubCategory.propTypes = {
+Subwashing.propTypes = {
     // item : PropTypes.objectOf(PropTypes.any).isRequired
 }
 
-export default SubCategory
+export default Subwashing
