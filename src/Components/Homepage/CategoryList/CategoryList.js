@@ -12,8 +12,7 @@ import SingleCategory from './SingleCategory';
 //import Image6 from '../../../Assets/Images/image6.jpg'
 //import Image7 from '../../../Assets/Images/image7.jpg'
 //import Image9 from '../../../Assets/Images/image9.jpg'
-//import watchmen from '../../../Assets/Images/watchmen.jpg'
-import { Link } from 'react-router-dom';
+//import watchmen from '../../../Assets/Images/watchmen.jpg' 
 import axios from 'axios';
 import { API_URL } from '../../../Config/config'
 
@@ -39,12 +38,6 @@ function CategoryList() {
         getData()
     },[])
     return (
-        <Link
-            to="/SubCategory-page"
-            style={{
-                textDecoration : 'none'
-            }}
-        >
             <Box
                 sx={{
                     textAlign : 'center',
@@ -137,7 +130,6 @@ function CategoryList() {
                     </OwlCarousel> */}
                 </Container>
             </Box>
-        </Link>
     )
 }
 

@@ -16,7 +16,7 @@ import NavbarLower from './NavbarLower';
 export default function Navbar({lower}) {
   const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const loggedIn = false;
+  const loggedIn = localStorage.getItem('loggedIn');
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
@@ -38,6 +38,13 @@ export default function Navbar({lower}) {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
+  const handleLogout = () => {
+    localStorage.clear()
+    navigate('/')
+    handleMenuClose()
+    handleMobileMenuClose()
+  }
 
   const handleLogin =() => {
     handleMenuClose()
@@ -62,7 +69,7 @@ export default function Navbar({lower}) {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleLogin}>My account</MenuItem>
+      <MenuItem onClick={handleLogout}>Logout</MenuItem>
     </Menu>
   );
 
@@ -139,7 +146,7 @@ export default function Navbar({lower}) {
                     onClick={handleProfileMenuOpen}
                     color="inherit"
                   > 
-                    <AccountCircle />
+                    <AccountCircle fontSize='large' />
                   </IconButton>
                   :
                 <Button variant="outlined" color="secondary" onClick={handleLogin}>Login/Sign Up</Button>

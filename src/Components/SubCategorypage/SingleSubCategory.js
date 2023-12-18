@@ -5,11 +5,13 @@ import StarIcon from '@mui/icons-material/Star';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import CustomDialogTitle from '../Common/DialogTitle';
-import cookingsub from '../../Assets/Images/cookingsub.jpg'
+import SubmitForm from './submitForm';
+// import cookingsub from '../../Assets/Images/cookingsub.jpg'
 // import BannerSlider from '../Banner/BannerSlider';
 
 function SingleSubCategory({ item }) {
     const [open, setOpen] = useState(false)
+    const [isForm, setIsForm] = useState(false)
 
     const handleOpen = () => {
         setOpen(true)
@@ -17,6 +19,14 @@ function SingleSubCategory({ item }) {
 
     const handleClose = () => {
         setOpen(false)
+        setTimeout(() => {            
+            setIsForm(false)
+        }, 300);
+    }
+
+    const openForm = () => {
+        setIsForm(true)
+        handleOpen()
     }
 
     return (
@@ -25,18 +35,18 @@ function SingleSubCategory({ item }) {
                 sx={{
                     boxShadow : '0px 0px 4px #ccc',
                     borderRadius : '8px',
+                    height : '400px',
                     overflow : 'hidden',
                     '&:hover' : {
                         cursor : 'pointer',
                         boxShadow : '0px 0px 16px #ccc'
                     }
                 }}
-                onClick={handleOpen}
             >
                 <Box
                     sx={{
                         height : '200px',
-                        backgroundImage : `url(${item.icon})`,
+                        backgroundImage : `url(${item?.files[0]?.file})`,
                         backgroundSize : 'cover'
                     }}
                 />
@@ -65,7 +75,7 @@ function SingleSubCategory({ item }) {
                         <Button
                             variant="contained"
                             size="small"
-                            onClick={handleOpen}
+                            onClick={openForm}
                         >
                           Book Now
                         </Button>
@@ -75,7 +85,8 @@ function SingleSubCategory({ item }) {
                         alignItems="center"
                     >
                         <StarIcon fontSize="small"/>
-                        <Typography variant="p" sx={{ml : '5px', fontSize : '13px'}}>{item.rating} ({item.review} reviews)</Typography>
+                        {/* <Typography variant="p" sx={{ml : '5px', fontSize : '13px'}}>{item.rating} ({item.review} reviews)</Typography> */}
+                        <Typography variant="p" sx={{ml : '5px', fontSize : '13px'}}>0 reviews</Typography>
                     </Box>
                     <Box
                         display="flex"
@@ -91,42 +102,27 @@ function SingleSubCategory({ item }) {
                         <FiberManualRecordIcon 
                             sx={{fontSize : '8px', m : '0px 10px', mt : '1px'}}
                         />
-                        <Typography variant="p" sx={{ fontSize : '12px'}}>{item.time}</Typography>
+                        {/* <Typography variant="p" sx={{ fontSize : '12px'}}>{item.time}</Typography> */}
                     </Box>
                     <Divider
                         sx={{
                             mt : '10px'
                         }}
                     />
-                    <ul
-                        style={{
-                            margin : 0,
-                            marginLeft : '15px',
-                            padding : '10px'
+                    <Box
+                        sx={{
+                            p : '10px',
                         }}
                     >
-                        {
-                            item.details.map((i)=> (
-                                <li
-                                    key={i.id}
-                                    >
-                                    <Typography 
-                                        variant="p"
-                                        sx={{
-                                            fontSize : '13px',
-                                            textOverflow : 'ellipsis',
-                                            overflow : 'hidden',
-                                            width :'100%',
-                                            whiteSpace : 'nowrap',
-                                            display : 'inline-block'
-                                        }}
-                                    >
-                                        {i.text}
-                                    </Typography>
-                                </li>
-                            ))
-                        }
-                    </ul>
+                        <Typography variant="p">{item.description.substring(0, 140)}</Typography>
+                        <Button
+                            onClick={handleOpen}
+                            color="primary"
+                            size="small"
+                        >
+                            View More
+                        </Button>
+                    </Box>
                 </Box>
             </Paper>
             <Dialog
@@ -134,147 +130,144 @@ function SingleSubCategory({ item }) {
                 maxWidth="xs"
                 fullWidth
             >
-                <CustomDialogTitle onClose={handleClose}>Cooking Service</CustomDialogTitle>
+                <CustomDialogTitle onClose={handleClose}>{ !isForm ? item.name : 'Submit Form'}</CustomDialogTitle>
                 <DialogContent
                     sx={{
                         p : '0px'
                     }}
                 >
-                    {/* <BannerSlider 
-                        height={200}
-                    /> */}
-                    <Box
-                        sx={{
-                            p : '20px'
-                        }}
-                    >
-                        <Box
-                            sx={{
-                                height : '200px',
-                                backgroundImage : `url(${item.icon})`,
-                                backgroundSize : 'cover'
-                            }}
+                    {
+                        isForm
+                        ?
+                        <SubmitForm 
+                            handleClose={handleClose}
                         />
+                        :
                         <Box
                             sx={{
-                                p : "10px"
+                                p : '20px'
                             }}
                         >
                             <Box
-                                display="flex"
-                                alignItems="center"
-                                justifyContent="space-between"
-                            >
-                                <Typography 
-                                    variant="p"
-                                    sx={{
-                                        display : 'block',
-                                        textAlign : 'left',
-                                        fontWeight : 600,
-                                        fontSize : '18px'
-
-                                    }}
-                                >
-                                    {item.name}
-                                </Typography>
-                                <Button
-                                    variant="contained"
-                                    size="small"
-                                >
-                                    Book
-                                </Button>
-                            </Box>
-                            <Box
-                                display="flex"
-                                alignItems="center"
-                            >
-                                <StarIcon fontSize="small"/>
-                                <Typography variant="p" sx={{ml : '5px', fontSize : '13px'}}>{item.rating} ({item.review} reviews)</Typography>
-                            </Box>
-                            <Box
-                                display="flex"
-                                alignItems="center"
-                                mt="8px"
-                            >
-                                <CurrencyRupeeIcon
-                                    sx={{
-                                        fontSize : '16px'
-                                    }}
-                                />
-                                <Typography variant="p" sx={{ fontSize : '14px', fontWeight : 'bold'}}>{item.price}</Typography>
-                                <FiberManualRecordIcon 
-                                    sx={{fontSize : '8px', m : '0px 10px', mt : '1px'}}
-                                />
-                                <Typography variant="p" sx={{ fontSize : '12px'}}>{item.time}</Typography>
-                            </Box>
-                            <Typography
-                                variant="h1"
                                 sx={{
-                                    fontWeight : 600,
-                                    fontSize : '18px',
-                                    m : '20px 0'
+                                    height : '200px',
+                                    backgroundImage : `url(${item?.files[0]?.file})`,
+                                    backgroundSize : 'cover'
+                                }}
+                            />
+                            <Box
+                                sx={{
+                                    p : "10px"
                                 }}
                             >
-                                Includes
-                            </Typography>
-                            <ul
-                                style={{
-                                    margin : 0,
-                                    padding : '0px',
-                                    listStyle : 'none'
-                                }}
-                            >
-                                {
-                                    item.details.map((i)=> (
-                                        <li
-                                            key={i.id}
-                                            >
-                                            <Box
-                                                display="flex"
-                                                mb="20px"
-                                            >
-                                                <img 
-                                                    src={cookingsub}
-                                                    height={60}
-                                                    width={60}
-                                                    style={{
-                                                        borderRadius : '8px'
-                                                    }}
-                                                />
-                                                <Box
-                                                    sx={{
-                                                         ml : '10px'
-                                                    }}
+                                <Box
+                                    display="flex"
+                                    alignItems="center"
+                                    justifyContent="space-between"
+                                >
+                                    <Typography 
+                                        variant="p"
+                                        sx={{
+                                            display : 'block',
+                                            textAlign : 'left',
+                                            fontWeight : 600,
+                                            fontSize : '18px'
+
+                                        }}
+                                    >
+                                        {item.name}
+                                    </Typography>
+                                    <Button
+                                        variant="contained"
+                                        size="small"
+                                        onClick={openForm}
+                                    >
+                                        Book
+                                    </Button>
+                                </Box>
+                                <Box
+                                    display="flex"
+                                    alignItems="center"
+                                >
+                                    <StarIcon fontSize="small"/>
+                                    <Typography variant="p" sx={{ml : '5px', fontSize : '13px'}}>(0 reviews)</Typography>
+                                </Box>
+                                <Box
+                                    display="flex"
+                                    alignItems="center"
+                                    mt="8px"
+                                >
+                                    <CurrencyRupeeIcon
+                                        sx={{
+                                            fontSize : '16px'
+                                        }}
+                                    />
+                                    <Typography variant="p" sx={{ fontSize : '14px', fontWeight : 'bold'}}>{item.price}</Typography>
+                                    <FiberManualRecordIcon 
+                                        sx={{fontSize : '8px', m : '0px 10px', mt : '1px'}}
+                                    />
+                                    {/* <Typography variant="p" sx={{ fontSize : '12px'}}>{item.time}</Typography> */}
+                                </Box>
+                                <Typography variant="p">{item.description}</Typography>
+                                {/* <ul
+                                    style={{
+                                        margin : 0,
+                                        padding : '0px',
+                                        listStyle : 'none'
+                                    }}
+                                >
+                                    {
+                                        item.details.map((i)=> (
+                                            <li
+                                                key={i.id}
                                                 >
-                                                    <Typography 
-                                                        variant="p"
+                                                <Box
+                                                    display="flex"
+                                                    mb="20px"
+                                                >
+                                                    <img 
+                                                        src={cookingsub}
+                                                        height={60}
+                                                        width={60}
+                                                        style={{
+                                                            borderRadius : '8px'
+                                                        }}
+                                                    />
+                                                    <Box
                                                         sx={{
-                                                            fontSize : '18px',
-                                                            fontWeight : '600',
-                                                            display : 'block',
-                                                            color : '#000'
+                                                            ml : '10px'
                                                         }}
                                                     >
-                                                        {i.headText}
-                                                    </Typography>
-                                                    <Typography 
-                                                        variant="p"
-                                                        sx={{
-                                                            fontSize : '15px',
-                                                            fontWeight : '500',
-                                                            color : '#666'
-                                                        }}
-                                                    >
-                                                        {i.text}
-                                                    </Typography>
+                                                        <Typography 
+                                                            variant="p"
+                                                            sx={{
+                                                                fontSize : '18px',
+                                                                fontWeight : '600',
+                                                                display : 'block',
+                                                                color : '#000'
+                                                            }}
+                                                        >
+                                                            {i.headText}
+                                                        </Typography>
+                                                        <Typography 
+                                                            variant="p"
+                                                            sx={{
+                                                                fontSize : '15px',
+                                                                fontWeight : '500',
+                                                                color : '#666'
+                                                            }}
+                                                        >
+                                                            {i.text}
+                                                        </Typography>
+                                                    </Box>
                                                 </Box>
-                                            </Box>
-                                        </li>
-                                    ))
-                                }
-                            </ul>
+                                            </li>
+                                        ))
+                                    }
+                                </ul> */}
+                            </Box>
                         </Box>
-                    </Box>
+                    }
                 </DialogContent>
             </Dialog>
         </Box>

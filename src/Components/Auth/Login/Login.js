@@ -1,8 +1,22 @@
-import React from 'react'
-import { Box, Typography, TextField, Button} from '@mui/material'
+import React, { useState } from 'react'
+import { Box, Typography, TextField, Button, CircularProgress} from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 //import { Link } from 'react-router-dom'
 
 function Login() {
+    const navigate = useNavigate()
+    const [phone, setPhone] = useState('')
+    const [loading, setLoading] = useState(false)
+
+    const handleLogin = () => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+            localStorage.setItem('loggedIn', true)
+            navigate('/')
+        }, 2000);
+    }
+
     return (
         <Box>
             <Typography 
@@ -13,7 +27,7 @@ function Login() {
                     m : '20px 0'
                
                 }}
-                >
+            >
                 Login
             </Typography>
             <TextField 
@@ -21,6 +35,8 @@ function Login() {
                 variant="outlined"
                 label="Phone"
                 size="small"
+                value={phone}
+                onChange={(e)=> setPhone(e.target.value)}
                 placeholder='Enter mobile number'
                 sx={{
                     mb : '30px',
@@ -45,8 +61,18 @@ function Login() {
             /> */}
             <Button
                 variant="contained"
-                >
-               proceed
+                onClick={handleLogin}
+                disabled={loading}
+            >
+                {
+                    loading
+                    ?
+                    <CircularProgress
+                        size={18}
+                    />
+                    :
+                    "Proceed"
+                }
             </Button>
             <Box
                 display="flex"

@@ -58,7 +58,7 @@ function Footer() {
             >
               Listing
             </Typography>
-            <a href ="contact-us">
+            <a href ="/contact-us" style={{ textDecoration : "none"}}>
             <Typography
               variant="p"
               sx={{
@@ -83,7 +83,7 @@ function Footer() {
             >
               Test Heading 1
             </Typography>
-            <a href="about-us">
+            <a href="/about-us" style={{ textDecoration : "none"}}>
               <Typography
                 variant="p"
                 sx={{
@@ -95,7 +95,7 @@ function Footer() {
                 About Us
               </Typography>
             </a>
-            <a href="awards-us">
+            <a href="/awards-us" style={{ textDecoration : "none"}}>
             <Typography
               variant="p"
               sx={{
@@ -107,7 +107,7 @@ function Footer() {
               Awards
             </Typography>
             </a>
-            <a href = "Privacy-page">
+            <a href = "/Privacy-page" style={{textDecoration : 'none'}}>
             <Typography
               variant="p"
               sx={{
