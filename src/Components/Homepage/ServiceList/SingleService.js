@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Box, Paper, Typography } from '@mui/material'
 
 function SingleService({item}) {
+
     return (
         <Paper 
             sx={{
@@ -41,7 +42,7 @@ function SingleService({item}) {
                     fontSize : '14px'
                 }}
             >
-                {item.text}
+                {item.description}
             </Typography>
         </Paper>
     )

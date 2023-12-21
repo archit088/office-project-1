@@ -2,6 +2,33 @@ import React from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import './Banner.css'
 import BannerSlider from './BannerSlider'
+import image1 from '../../Assets/Images/image1.jpg'
+import image2 from '../../Assets/Images/image2.jpg'
+import image3 from '../../Assets/Images/image3.jpg'
+import image4 from '../../Assets/Images/image4.jpg'
+
+const list = [
+    {
+        "service_id": 1,
+        "file": image1,
+        "mime_type": "image/jpeg"
+    },
+    {
+        "service_id": 2,
+        "file": image2,
+        "mime_type": "image/jpeg"
+    },
+    {
+        "service_id": 3,
+        "file": image3,
+        "mime_type": "image/jpeg"
+    },
+    {
+        "service_id": 4,
+        "file": image4,
+        "mime_type": "image/jpeg"
+    },
+]
 
 const Banner = () => {
     return (
@@ -11,7 +38,9 @@ const Banner = () => {
                     position : 'relative'
                 }}
             >
-                <BannerSlider />
+                <BannerSlider 
+                    images={list}
+                />
                 <Box
                     sx={{
                         position : 'absolute',

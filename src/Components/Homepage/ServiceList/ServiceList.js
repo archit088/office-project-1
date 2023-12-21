@@ -1,55 +1,83 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Container, Grid, Typography } from '@mui/material'
 // import OwlCarousel from 'react-owl-carousel'
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import Image1 from '../../../Assets/Images/image1.jpg'
-import Image2 from '../../../Assets/Images/image2.jpg'
-import Image3 from '../../../Assets/Images/image3.jpg'
-import Image4 from '../../../Assets/Images/image4.jpg'
-import Image5 from '../../../Assets/Images/image1.jpg'
+// import Image1 from '../../../Assets/Images/image1.jpg'
+// import Image2 from '../../../Assets/Images/image2.jpg'
+// import Image3 from '../../../Assets/Images/image3.jpg'
+// import Image4 from '../../../Assets/Images/image4.jpg'
+// import Image5 from '../../../Assets/Images/image1.jpg'
 import SingleService from './SingleService';
+import axios from 'axios';
+import { API_URL } from '../../../Config/config' 
+import { Link } from 'react-router-dom';
 
-const list = [
-    {
-        id : 1,
-        name :  'Category 1',
-        text : 'test text 1',
-        icon : Image1
-    },
-    {
-        id : 2,
-        name :  'Category 2',
-        text : 'test text 1',
-        icon : Image2
-    },
-    {
-        id : 3,
-        name :  'Category 3',
-        text : 'test text 1',
-        icon : Image3
-    },
-    {
-        id : 4,
-        name :  'Category 4',
-        text : 'test text 1',
-        icon : Image4
-    },
-    {
-        id : 5,
-        name :  'Category 5',
-        text : 'test text 1',
-        icon : Image5
-    },
-    {
-        id : 6,
-        name :  'Category 6',
-        text : 'test text 1',
-        icon : Image1
-    },
-]
+// const list1 = [
+//     {
+//         id : 1,
+//         name :  'Category 1',
+//         text : 'test text 1',
+//         icon : Image1
+//     },
+//     {
+//         id : 2,
+//         name :  'Category 2',
+//         text : 'test text 1',
+//         icon : Image2
+//     },
+//     {
+//         id : 3,
+//         name :  'Category 3',
+//         text : 'test text 1',
+//         icon : Image3
+//     },
+//     {
+//         id : 4,
+//         name :  'Category 4',
+//         text : 'test text 1',
+//         icon : Image4
+//     },
+//     {
+//         id : 5,
+//         name :  'Category 5',
+//         text : 'test text 1',
+//         icon : Image5
+//     },
+//     {
+//         id : 6,
+//         name :  'Category 6',
+//         text : 'test text 1',
+//         icon : Image1
+//     },
+// ]
 
 function ServiceList() {
+    const [list,setList]= useState([])
+
+    const getList = ()=> {
+        const requestOptions = {
+            method : 'GET',
+            url : `${API_URL}api/service/category/latest`,
+            headers : {
+                'Token' : localStorage.getItem('authToken')
+            }
+        }
+        axios(requestOptions)
+        .then(data=> {
+            console.log(data)
+            setList(data.data.data)
+
+        })
+        .catch(error=> {
+            console.log('error', error)
+        })
+    }
+
+    useEffect(()=>{
+        getList()
+    },[])
+
     return (
         <Box
             sx={{
@@ -97,9 +125,13 @@ function ServiceList() {
                                 item md={4}
                                 key={i.id}
                             >
-                                <SingleService 
-                                    item={i}
-                                />
+                                <Link
+                                    to={`/sub-category/${i.id}`}
+                                >
+                                    <SingleService 
+                                        item={i}
+                                    />
+                                </Link>
                             </Grid>
                         ))
                     }

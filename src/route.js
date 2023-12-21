@@ -11,7 +11,7 @@ import Contactpage from "./Components/Contact/Contact";
 import Privacypolicy from "./Components/Privacypolicy/Privacypolicy";
 import SubCategory  from   "./Components/SubCategorypage/SubCategory";
 import Subwashing from "./Components/Subwashing/Subwashing";
-import Formdeatails from "./Components/Formdetails/Formdetails";
+
 
 const router = createBrowserRouter([
   {
@@ -49,11 +49,8 @@ const router = createBrowserRouter([
 {
   path:"Subwashing",
   element:<Subwashing/>
-},
-{
-  path:"formdeatails",
-  element:<Formdeatails/>
 }
+
 
 ]);
 

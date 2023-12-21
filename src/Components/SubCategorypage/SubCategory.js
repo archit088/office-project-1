@@ -145,6 +145,7 @@ function SubCategory(){
     const { id } = useParams()
     const [open, setOpen] = useState(false)
     const [serviceList, setServiceList] = useState([])
+    const [imagesList, setImagesList] = useState([])
 
     const handleOpen = () => {
         setOpen(true)
@@ -171,8 +172,26 @@ function SubCategory(){
         })
     }
 
+    const getImages = () => {
+        const requestOptions = {
+            method : 'GET',
+            headers : {
+                'Token' : localStorage.getItem('authToken')
+            },
+            url : `${API_URL}api/service/category/images/${id}`,
+        }
+        axios(requestOptions)
+        .then(data=> {
+            setImagesList(data.data)
+        })
+        .catch(error=> {
+            console.log('error', error)
+        })
+    }
+
     useEffect(()=>{
         if(id){
+            getImages()
             getSubCategoryData()
         }
     },[id])
@@ -194,7 +213,7 @@ function SubCategory(){
                             fontWeight : '600',
                         }}
                     >
-                        Service Name
+                        {serviceList[0]?.categories[0]?.name}
                     </Typography>
                     <Box
                         display="flex"
@@ -284,6 +303,7 @@ function SubCategory(){
                         >
                         <BannerSlider 
                             height={300}
+                            images={imagesList}
                         />
                         </Box>
                     </Grid>
