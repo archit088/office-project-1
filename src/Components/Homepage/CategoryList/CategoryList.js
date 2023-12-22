@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react'
-import { Box, Container, Grid, Typography } from '@mui/material'
+import { Box, Container, Grid, Skeleton, Typography } from '@mui/material'
 // import OwlCarousel from 'react-owl-carousel'
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
@@ -18,18 +18,22 @@ import { API_URL } from '../../../Config/config'
 
 
 function CategoryList() {
+    const [loading, setLoading] = useState(false)
     const [list, setList] = useState([])
 
     const getData = () => {
+        setLoading(true)
         const requestOptions = {
             method : 'GET',
             url : `${API_URL}api/service/category/all` 
         }
         axios(requestOptions)
         .then(data=> {
+            setLoading(false)
             setList(data.data.data)
         })
         .catch(error=> {
+            setLoading(false)
             console.log('error', error)
         })
     }
@@ -79,6 +83,31 @@ function CategoryList() {
                         spacing={2}
                     >
                         {
+                            loading
+                            ?
+                            [0,1,2].map(i=> (
+                                <Grid item md={4} key={`skeleton-${i}`}>
+                                    <Skeleton 
+                                        variant="rectangular"
+                                        sx={{
+                                            height : '200px',
+                                            borderRadius : '8px 8px 0px 0px'
+                                        }}
+                                    />
+                                    <Skeleton 
+                                        variant='text'
+                                        height={40}
+                                    />
+                                    <Skeleton 
+                                        variant='rectangular'
+                                        sx={{
+                                            borderRadius : '0px 0px 8px 8px',
+                                            height : '30px'
+                                        }}
+                                    />
+                                </Grid>
+                            ))
+                            :
                             list.filter(f=> [1,2,3].includes(f.id)).map(i=> (
                                 <Grid 
                                     item md={4}

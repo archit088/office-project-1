@@ -9,11 +9,11 @@ import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link, useNavigate } from 'react-router-dom'
-import { Button, Container } from '@mui/material';
+import { Button, Container, TextField } from '@mui/material';
 import Logo from '../../Assets/Images/slogo11.png'
-import NavbarLower from './NavbarLower';
+// import NavbarLower from './NavbarLower';
 
-export default function Navbar({lower}) {
+export default function Navbar() {
   const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = React.useState(null);
   const loggedIn = localStorage.getItem('loggedIn');
@@ -121,7 +121,13 @@ export default function Navbar({lower}) {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="fixed" color="primary">
           <Container>
-            <Toolbar>
+            <Toolbar
+              sx={{
+                display : 'flex',
+                alignItems : 'center',
+                justifyContent : 'space-between'
+              }}
+            >
               <Link
                 to="/"
               >
@@ -132,7 +138,14 @@ export default function Navbar({lower}) {
                   width={70}
                   />
               </Link>
-              <Box sx={{ flexGrow: 1 }} />
+              <TextField
+                size="small"
+                placeholder='Search'
+                sx={{
+                  background : '#fff',
+                  borderRadius : '4px'
+                }}
+              />
               <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                 {
                   loggedIn
@@ -170,12 +183,12 @@ export default function Navbar({lower}) {
         {renderMobileMenu}
         {renderMenu}
       </Box>
-      <Box sx={{height : '80px'}} />
-      {
+      <Box sx={{height : '75px'}} />
+      {/* {
         lower && (
           <NavbarLower />
         )
-      }
+      } */}
     </Box>
   );
 }

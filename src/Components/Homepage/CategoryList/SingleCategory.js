@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Paper, Typography } from '@mui/material'
+import { Box, Paper, Typography,Button} from '@mui/material'
 import { Link } from 'react-router-dom'
 
 function SingleCategory({item}) {
@@ -13,7 +13,8 @@ function SingleCategory({item}) {
         >
             <Paper 
                 sx={{
-                    p : '20px',
+                    borderRadius : '6px',
+                    overflow : 'hidden',
                     boxShadow : '0px 0px 4px #ccc',
                     '&:hover' : {
                         cursor : 'pointer',
@@ -33,23 +34,28 @@ function SingleCategory({item}) {
                     sx={{
                         display : 'block',
                         textAlign : 'left',
-                        mt : '10px',
-                        fontWeight : 600
+                        p : '10px',
+                        fontSize : '18px',
+                        fontWeight : 'bold'
                     }}
                 >
                     {item.name}
                 </Typography>
-                <Typography
-                    variant="p"
-                    sx={{
-                        display : 'block',
-                        textAlign : 'left',
-                        mt : '5px',
-                        fontSize : '14px'
-                    }}
-                >
-                    {item.description}
-                </Typography>
+                <Box
+                        sx={{
+                            p : '10px',
+                        }}
+                    >
+         <Typography variant="p" sx={{textAlign:"left",display:"block"}}>{item.description.substring(0, 140)}</Typography>
+                        <Button
+                            color="primary"
+                            size="small"
+                            variant='contained'
+                        >
+                            View More
+                        </Button>
+                    </Box>
+                
             </Paper>
         </Link>
     )

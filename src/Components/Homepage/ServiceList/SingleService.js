@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Paper, Typography } from '@mui/material'
+import { Box, Paper, Typography,Button } from '@mui/material'
 
 function SingleService({item}) {
 
     return (
         <Paper 
             sx={{
-                p : '20px',
+                borderRadius : '8px',
+                overflow : 'hidden',
                 boxShadow : '0px 0px 4px #ccc',
                 '&:hover' : {
                     cursor : 'pointer',
@@ -18,32 +19,40 @@ function SingleService({item}) {
             <Box
                 sx={{
                     height : '200px',
-                    backgroundImage : `url(${item.icon})`,
+                    backgroundImage : `url(${item.files[0].file})`,
                     backgroundSize : 'cover'
                 }}
             />
+            <Box sx={{p:"10px"}}>
             <Typography 
                 variant="p"
                 sx={{
                     display : 'block',
                     textAlign : 'left',
+                    fontWeight : "bold",
+                    fontSize : '18px',
                     mt : '10px',
-                    fontWeight : 600
+                   
                 }}
             >
                 {item.name}
             </Typography>
-            <Typography
-                variant="p"
-                sx={{
-                    display : 'block',
-                    textAlign : 'left',
-                    mt : '5px',
-                    fontSize : '14px'
-                }}
-            >
-                {item.description}
-            </Typography>
+            </Box>
+            
+            <Box
+                        sx={{
+                            p : '10px',
+                        }}
+                    >
+         <Typography variant="p" sx={{textAlign:"left",display:"block"}}>{item.description.substring(0, 140)}</Typography>
+                        <Button
+                            color="primary"
+                            size="small"
+                            variant='contained'
+                        >
+                            View More
+                        </Button>
+                    </Box>
         </Paper>
     )
 }

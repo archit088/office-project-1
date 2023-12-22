@@ -1,158 +1,41 @@
 import React, { useEffect, useState } from 'react'
 import StarIcon from '@mui/icons-material/Star';
 import Navbar from '../Navbar/Navbar'
-// import Banner from '../Banner/Banner'
 import Footer from '../Homepage/Footer/Footer'
 import SingleSubCategory from './SingleSubCategory'
-import { Box, Button, Container, Dialog, DialogActions, DialogContent, Grid, Paper, Typography } from '@mui/material'
-// import BiotechIcon from '@mui/icons-material/Biotech';
-// import cookingsub from '../../Assets/Images/cookingsub.jpg'
-// import cleaningsub from '../../Assets/Images/cleaningsub.jpg'
-// import Image2 from '../../Assets/Images/image2.jpg'
-// import Image4 from '../../Assets/Images/image4.jpg'
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import { Box, Button, Container, Dialog, DialogContent, Grid, Paper, Typography } from '@mui/material'
 import BannerSlider from '../Banner/BannerSlider';
 import CustomDialogTitle from '../Common/DialogTitle';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../../Config/config'
-// import Image9 from '../../Assets/Images/image9.jpg'
-// import Image6 from '../../Assets/Images/image6.jpg'
-
-// const serviceList = [
-//     {
-//         id  : 1,
-//         serviceName : 'Service 1',
-//         image : <BiotechIcon />
-//     },
-//     {
-//         id  : 2,
-//         serviceName : 'Service 1',
-//         image : <BiotechIcon />
-//     },
-//     {
-//         id  : 3,
-//         serviceName : 'Service 1',
-//         image : <BiotechIcon />
-//     },
-//     {
-//         id  : 4,
-//         serviceName : 'Service 1',
-//         image : <BiotechIcon />
-//     },
-//     {
-//         id  : 5,
-//         serviceName : 'Service 1',
-//         image : <BiotechIcon />
-//     },
-//     {
-//         id  : 6,
-//         serviceName : 'Service 1',
-//         image : <BiotechIcon />
-//     },
-// ]
-
-// const list = [
-//     {
-       
-//         id : 1,
-//         name :  'Cooking Service',
-//         rating : 4.5,
-//         review : 1.5,
-//         time : '35 minutes',
-//         price : 100,
-//         icon : cookingsub,
-//         details : [
-//             {
-//                 id : 11,
-//                 headText : 'Lorem Ipsum is simply dummy text',
-//                 text : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-//             },
-//             {
-//                 id : 12,
-//                 headText : 'Lorem Ipsum is simply dummy text',
-//                 text : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-//             },
-//         ]
-//     },
-//     {
-//         id : 2,
-//         name :  'Kitchen Service',
-//         icon : Image2,
-//         rating : 4.5,
-//         review : 1.5,
-//         time : '35 minutes',
-//         price : 100,
-//         details : [
-//             {
-//                 id : 21,
-//                 headText : 'Lorem Ipsum is simply dummy text',
-//                 text : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-//             },
-//             {
-//                 id : 22,
-//                 headText : 'Lorem Ipsum is simply dummy text',
-//                 text : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-//             },
-//         ]
-//     },
-//     {
-//         id : 3,
-//         name :  'Cleaning Service',
-//         icon : cleaningsub,
-//         rating : 4.5,
-//         review : 1.5,
-//         time : '35 minutes',
-//         price : 100,
-//         details : [
-//             {
-//                 id : 31,
-//                 headText : 'Lorem Ipsum is simply dummy text',
-//                 text : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-//             },
-//             {
-//                 id : 32,
-//                 headText : 'Lorem Ipsum is simply dummy text',
-//                 text : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-//             },
-            
-//         ]
-//     },
-//     {
-//         id : 4,
-//         name :  'Washroom Service',
-//         icon : Image4,
-//         rating : 4.6,
-//         review : 2.5,
-//         time : '1 hour 35 minutes',
-//         price : 500,
-//         details : [
-//             {
-//                 id : 41,
-//                 headText : 'Lorem Ipsum is simply dummy text',
-//                 text : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-//             },
-//             {
-//                 id : 42,
-//                 headText : 'Lorem Ipsum is simply dummy text',
-//                 text : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-//             },
-//         ]
-//     },
-   
-// ]
+import SubmitForm from './submitForm';
 
 function SubCategory(){
     const { id } = useParams()
     const [open, setOpen] = useState(false)
-    const [serviceList, setServiceList] = useState([])
+    const [isForm, setIsForm] = useState(false)
     const [imagesList, setImagesList] = useState([])
+    const [serviceList, setServiceList] = useState([])
+    const [subCategoryId, setSubCategoryId] = useState(0)
 
-    const handleOpen = () => {
+    const handleOpen = (e) => {
         setOpen(true)
+        setSubCategoryId(e)
     }
 
     const handleClose = () => {
         setOpen(false)
+        setTimeout(() => {            
+            setIsForm(false)
+        }, 300);
+    }
+
+    const openForm = (e) => {
+        setIsForm(true)
+        handleOpen(e)
     }
 
     const getSubCategoryData = () => {
@@ -178,11 +61,13 @@ function SubCategory(){
             headers : {
                 'Token' : localStorage.getItem('authToken')
             },
-            url : `${API_URL}api/service/category/images/${id}`,
+            url : `${API_URL}api/service/category/slider/${id}`,
         }
         axios(requestOptions)
         .then(data=> {
-            setImagesList(data.data)
+            console.log(data)
+            setImagesList(data.data.data)
+
         })
         .catch(error=> {
             console.log('error', error)
@@ -249,7 +134,7 @@ function SubCategory(){
                                 Select a Service
                             </Typography>
                         {
-                            serviceList.map(s=> (
+                            serviceList.map((s, index)=> (
                                 <Box
                                     key={s.id}
                                     sx={{
@@ -266,6 +151,7 @@ function SubCategory(){
                                             cursor : 'pointer'
                                         }
                                     }}
+                                    onClick={()=> handleOpen(index)}
                                 >
                                     <Box
                                         textAlign="center"
@@ -300,6 +186,10 @@ function SubCategory(){
                         md={8}
                     >
                         <Box
+                            sx={{
+                                borderRadius : '8px',
+                                overflow : 'hidden'
+                            }}
                         >
                         <BannerSlider 
                             height={300}
@@ -320,7 +210,7 @@ function SubCategory(){
                         spacing={2}
                     >
                         {
-                            serviceList.map((item)=> (
+                            serviceList.map((item, index)=> (
                                 <Grid 
                                     item
                                     md={4}
@@ -328,6 +218,8 @@ function SubCategory(){
                                 >
                                     <SingleSubCategory 
                                         item={item}
+                                        index={index}
+                                        openForm={openForm}
                                         handleOpen={handleOpen}
                                     />
                                 </Grid>
@@ -337,19 +229,156 @@ function SubCategory(){
                 </Container>
             </Box>
             <Footer/>
-            <Dialog
-                open={open}
-                maxWidth="sm"
-                fullWidth
-            >
-                <CustomDialogTitle onClose={handleClose}>Book Service</CustomDialogTitle>
-                <DialogContent>
-                    <Typography>test</Typography>
-                </DialogContent>
-                <DialogActions>
-                    <Button>Save</Button>
-                </DialogActions>
-            </Dialog>
+            {
+                open && (
+                <Dialog
+                    open={open}
+                    maxWidth="xs"
+                    fullWidth
+                >
+                    <CustomDialogTitle onClose={handleClose}>{ !isForm ? serviceList[subCategoryId]?.name : 'Submit Form'}</CustomDialogTitle>
+                    <DialogContent
+                        sx={{
+                            p : '0px'
+                        }}
+                    >
+                        {
+                            isForm
+                            ?
+                            <SubmitForm
+                                subCategoryId={serviceList[subCategoryId]?.id}
+                                handleClose={handleClose}
+                            />
+                            :
+                            <Box
+                                sx={{
+                                    p : '20px'
+                                }}
+                            >
+                                <Box
+                                    sx={{
+                                        height : '200px',
+                                        backgroundImage : `url(${serviceList[subCategoryId]?.files[0]?.file})`,
+                                        backgroundSize : 'cover'
+                                    }}
+                                />
+                                <Box
+                                    sx={{
+                                        p : "10px"
+                                    }}
+                                >
+                                    <Box
+                                        display="flex"
+                                        alignItems="center"
+                                        justifyContent="space-between"
+                                    >
+                                        <Typography 
+                                            variant="p"
+                                            sx={{
+                                                display : 'block',
+                                                textAlign : 'left',
+                                                fontWeight : 600,
+                                                fontSize : '18px'
+
+                                            }}
+                                        >
+                                            {serviceList[subCategoryId]?.name}
+                                        </Typography>
+                                        <Button
+                                            variant="contained"
+                                            size="small"
+                                            onClick={openForm}
+                                        >
+                                            Book
+                                        </Button>
+                                    </Box>
+                                    <Box
+                                        display="flex"
+                                        alignItems="center"
+                                    >
+                                        <StarIcon fontSize="small"/>
+                                        <Typography variant="p" sx={{ml : '5px', fontSize : '13px'}}>(0 reviews)</Typography>
+                                    </Box>
+                                    <Box
+                                        display="flex"
+                                        alignItems="center"
+                                        mt="8px"
+                                    >
+                                        <CurrencyRupeeIcon
+                                            sx={{
+                                                fontSize : '16px'
+                                            }}
+                                        />
+                                        <Typography variant="p" sx={{ fontSize : '14px', fontWeight : 'bold'}}>{serviceList[subCategoryId]?.price}</Typography>
+                                        <FiberManualRecordIcon 
+                                            sx={{fontSize : '8px', m : '0px 10px', mt : '1px'}}
+                                        />
+                                        {/* <Typography variant="p" sx={{ fontSize : '12px'}}>{item.time}</Typography> */}
+                                    </Box>
+                                    <Typography variant="p">{serviceList[subCategoryId]?.description}</Typography>
+                                    {/* <ul
+                                        style={{
+                                            margin : 0,
+                                            padding : '0px',
+                                            listStyle : 'none'
+                                        }}
+                                    >
+                                        {
+                                            item.details.map((i)=> (
+                                                <li
+                                                    key={i.id}
+                                                    >
+                                                    <Box
+                                                        display="flex"
+                                                        mb="20px"
+                                                    >
+                                                        <img 
+                                                            src={cookingsub}
+                                                            height={60}
+                                                            width={60}
+                                                            style={{
+                                                                borderRadius : '8px'
+                                                            }}
+                                                        />
+                                                        <Box
+                                                            sx={{
+                                                                ml : '10px'
+                                                            }}
+                                                        >
+                                                            <Typography 
+                                                                variant="p"
+                                                                sx={{
+                                                                    fontSize : '18px',
+                                                                    fontWeight : '600',
+                                                                    display : 'block',
+                                                                    color : '#000'
+                                                                }}
+                                                            >
+                                                                {i.headText}
+                                                            </Typography>
+                                                            <Typography 
+                                                                variant="p"
+                                                                sx={{
+                                                                    fontSize : '15px',
+                                                                    fontWeight : '500',
+                                                                    color : '#666'
+                                                                }}
+                                                            >
+                                                                {i.text}
+                                                            </Typography>
+                                                        </Box>
+                                                    </Box>
+                                                </li>
+                                            ))
+                                        }
+                                    </ul> */}
+                                </Box>
+                            </Box>
+                        }
+                    </DialogContent>
+                </Dialog>
+                )
+            }
         </>
     )
 }

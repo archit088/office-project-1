@@ -127,6 +127,9 @@ function ServiceList() {
                             >
                                 <Link
                                     to={`/sub-category/${i.id}`}
+                                    style={{
+                                        textDecoration : "none"
+                                    }}
                                 >
                                     <SingleService 
                                         item={i}

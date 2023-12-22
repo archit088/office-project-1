@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Box, Button, CircularProgress, MenuItem, Typography } from '@mui/material'
+import { Box, Button, CircularProgress, Typography } from '@mui/material'
 import { TextField } from 'formik-mui';
 import axios from 'axios';
 import * as Yup from 'yup'
@@ -8,11 +8,10 @@ import { API_URL } from '../../Config/config'
 import { Field, Form, Formik } from 'formik';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
-function SubmitForm({ handleClose }) {
+function SubmitForm({ handleClose, subCategoryId }) {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
-    const [service, setService] = useState('')
     const [message, setMessage] = useState('')
     const [submitted, setSubmitted] = useState(false)
 
@@ -23,7 +22,7 @@ function SubmitForm({ handleClose }) {
         formData.append('email', email)
         formData.append('phone', phone)
         formData.append('message', message)
-        formData.append('service', service)
+        formData.append('service', subCategoryId)
         const requestOptions = {
             method : 'POST',
             url :  `${API_URL}api/customer/enquiry`,
@@ -43,7 +42,6 @@ function SubmitForm({ handleClose }) {
         email,
         phone,
         message,
-        service
     }
     return (
         <Box
@@ -84,9 +82,9 @@ function SubmitForm({ handleClose }) {
                     validationSchema={Yup.object({
                         name : Yup.string().required('Required'),
                         email : Yup.string().email('Enter valid email').required('Required'),
-                        phone : Yup.string().required('Required'),
+                        phone : Yup.number().test('len', 'Phone number must be of 10 digits', val => val.toString().length === 10).required('Required'),
                         message : Yup.string().required('Required'),
-                        service : Yup.string().required('Required'),
+                        // service : Yup.string().required('Required'),
                     })}
                 >
                 {({ isSubmitting, errors, touched }) => (
@@ -127,6 +125,7 @@ function SubmitForm({ handleClose }) {
                             component={TextField}
                             name="phone"
                             value={phone}
+                            type="number"
                             error={!!errors.phone && touched.phone}
                             helperText={errors.phone && touched.phone ? errors.phone : ''}
                             onChange={(e)=> setPhone(e.target.value)}
@@ -138,7 +137,7 @@ function SubmitForm({ handleClose }) {
                                 mb : '20px'
                             }}
                         />
-                        <Field
+                        {/* <Field
                             component={TextField}
                             name="service"
                             value={service}
@@ -146,19 +145,16 @@ function SubmitForm({ handleClose }) {
                             helperText={errors.service && touched.service ? errors.service : ''}
                             onChange={(e)=> setService(e.target.value)}
                             fullWidth
-                            select
                             size='small'
                             label="Service"
-                            placeholder='Select service'
+                            placeholder='Enter Services'
                             sx={{
                                 mb : '20px'
                             }}
+                            
                         >
-                            <MenuItem value="7">Service 1</MenuItem>
-                            <MenuItem value="7">Service 2</MenuItem>
-                            <MenuItem value="7">Service 3</MenuItem>
-                            <MenuItem value="7">Service 4</MenuItem>
-                        </Field>
+                           
+                        </Field> */}
                         <Field
                             component={TextField}
                             multiline
@@ -201,7 +197,8 @@ function SubmitForm({ handleClose }) {
 }
 
 SubmitForm.propTypes = {
-    handleClose : PropTypes.func.isRequired
+    handleClose : PropTypes.func.isRequired,
+    subCategoryId : PropTypes.number.isRequired,
 }
 
 export default SubmitForm

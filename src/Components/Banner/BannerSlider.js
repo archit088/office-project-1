@@ -39,6 +39,7 @@ function BannerSlider({height, images}) {
             <OwlCarousel 
                 className='owl-theme' 
                 loop 
+                autoplay
                 responsive={{
                     0 : {
                         items : 1
