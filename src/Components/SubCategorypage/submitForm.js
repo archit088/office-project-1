@@ -12,6 +12,7 @@ function SubmitForm({ handleClose, subCategoryId }) {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
+    const [address, setAddress] = useState('')
     const [message, setMessage] = useState('')
     const [submitted, setSubmitted] = useState(false)
 
@@ -21,6 +22,7 @@ function SubmitForm({ handleClose, subCategoryId }) {
         formData.append('name', name)
         formData.append('email', email)
         formData.append('phone', phone)
+        formData.append('address',address)
         formData.append('message', message)
         formData.append('service', subCategoryId)
         const requestOptions = {
@@ -41,6 +43,7 @@ function SubmitForm({ handleClose, subCategoryId }) {
         name,
         email,
         phone,
+        address,
         message,
     }
     return (
@@ -137,24 +140,24 @@ function SubmitForm({ handleClose, subCategoryId }) {
                                 mb : '20px'
                             }}
                         />
-                        {/* <Field
+                        <Field
                             component={TextField}
-                            name="service"
-                            value={service}
-                            error={!!errors.service && touched.service}
-                            helperText={errors.service && touched.service ? errors.service : ''}
-                            onChange={(e)=> setService(e.target.value)}
+                            name="address"
+                            value={address}
+                            error={!!errors.address && touched.address}
+                            helperText={errors.address && touched.address ? errors.address : ''}
+                            onChange={(e)=> setAddress(e.target.value)}
                             fullWidth
                             size='small'
-                            label="Service"
-                            placeholder='Enter Services'
+                            label="Address"
+                            placeholder='Complete Address'
                             sx={{
                                 mb : '20px'
                             }}
                             
                         >
                            
-                        </Field> */}
+                        </Field>
                         <Field
                             component={TextField}
                             multiline

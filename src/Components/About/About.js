@@ -1,13 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Logo from "../../Assets/Images/slogo.png";
+import Navbar from '../Navbar/Navbar';
+
 import {
   Box,
-  Button,
+ 
   Container,
   Grid,
   Paper,
-  Toolbar,
+
   Typography,
 } from "@mui/material";
 import Footer from "../Homepage/Footer/Footer";
@@ -43,21 +43,10 @@ const teamList = [
 
 function AboutPage() {
   return (
+    
     <Box>
-      <Paper>
-        <Container>
-          <Toolbar>
-            <Link to="/">
-              <img src={Logo} alt="logo" />
-            </Link>
-            <Box sx={{ flexGrow: 1 }} />
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <Button variant="outlined">Login/Sign Up</Button>
-            </Box>
-          </Toolbar>
-        </Container>
-      </Paper>
-      <Container>
+      <Navbar/>
+       <Container>
         <Paper
           sx={{
             m: "40px 0 ",

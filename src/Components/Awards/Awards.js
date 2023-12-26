@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Logo from "../../Assets/Images/slogo.png";
-import { Box,Button,Container, Grid,Paper, Toolbar, Typography,}
+import Navbar from '../Navbar/Navbar';
+import { Box,Container, Grid,Paper, Typography,}
  from "@mui/material";
 import Footer from "../Homepage/Footer/Footer";
 //import Image1 from '../../Assets/Images/image11.png'
@@ -11,17 +10,8 @@ function Awardpage() {
   return (
     <Box>
       <Paper>
-        <Container>
-          <Toolbar>
-            <Link to="/">
-              <img src={Logo} alt="logo" />
-            </Link>
-            <Box sx={{ flexGrow: 1 }} />
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <Button variant="outlined">Login/Sign Up</Button>
-            </Box>
-          </Toolbar>
-        </Container>
+        <Navbar/>
+       
       </Paper>
       <Container>
         <Paper

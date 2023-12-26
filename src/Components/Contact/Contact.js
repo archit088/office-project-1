@@ -1,24 +1,63 @@
-import React from "react";
+import {Field,Formik,Form} from 'formik'
+import React, { useState } from 'react'
+import * as Yup from 'yup'
+import axios from 'axios'
+import { API_URL } from '../../Config/config'
+
 import {
   Box,
   Container,
   Grid,
   Paper,
   TextField,
-  Link,
   Typography,
+  Button,
+  CircularProgress,
 } from "@mui/material";
 import Footer from "../Homepage/Footer/Footer";
 import Banner from "../Banner/Banner";
 import Navbar from "../Navbar/Navbar";
 
 function Contact() {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [message, setMessage] = useState('')
+ const [loading, setLoading] = useState(false)
+
+
+  const submitFormData = (e) => {
+    e.preventDefault()
+    setLoading(true)
+        const requestOptions = {
+            method : 'POST',
+            url :  `${API_URL}api/cms/contact-us`,
+            data : {
+              name:name,
+              phone:phone,
+              email:email,
+              message:message
+
+            }
+        }
+        axios(requestOptions)
+        .then(()=> {
+            setLoading(false)
+        })
+        .catch(error=> {
+            setLoading(false)
+            console.log('error', error)
+        })
+  }
+
+  const initialValues = {
+     
+  }
   return (
     <Box>
+      <Navbar />
+      <Banner />
       <Container>
-        <Navbar />
-        <Banner />
-
         <Grid container spacing={2}>
           <Grid item md={6}>
             <Paper
@@ -80,67 +119,128 @@ function Contact() {
                   color: "#666",
                 }}
               >
-                <TextField
-                  fullWidth
-                  variant="outlined"
-                  label="Full Name"
-                  placeholder="Enter Full Name"
-                  sx={{
-                    mb: "30px",
-                    // '& fieldset' : {
-                    // borderRadius : '30px',
-                    // p : '10px 10px'
-                    // }
-                  }}
-                />
-
-                <TextField
-                  fullWidth
-                  variant="outlined"
-                  label="E-Mail"
-                  placeholder="Enter E-Mail"
-                  sx={{
-                    mb: "30px",
-                    // '& fieldset' : {
-                    // borderRadius : '30px',
-                    // }
-                  }}
-                />
-
-                <TextField
-                  fullWidth
-                  variant="outlined"
-                  label="Mobile"
-                  placeholder="Enter Mobile"
-                  sx={{
-                    mb: "30px",
-                    // '& fieldset' : {
-                    // borderRadius : '30px',
-                    // }
-                  }}
-                />
-
-                <TextField
-                  fullWidth
-                  variant="outlined"
-                  label="Summary"
-                  placeholder="Sumamry"
-                  sx={{
-                    mb: "30px",
-                    // '& fieldset' : {
-                    // borderRadius : '30px',
-                    // p : '10px 10px'
-                    // }
-                  }}
-                />
-                <Link to="/login">Submit</Link>
+                <Formik
+                    enableReinitialize
+                    initialValues={initialValues}
+                    validationSchema={Yup.object({
+                        name : Yup.string().required('Required'),
+                        email : Yup.string().email('Enter valid email').required('Required'),
+                        phone : Yup.number().test('len', 'Phone number must be of 10 digits', val => val.toString().length === 10).required('Required'),
+                        message : Yup.string().required('Required'),
+                        // service : Yup.string().required('Required'),
+                    })}
+                >
+                {({ errors, touched }) => (
+                    <Form
+                        onSubmit={submitFormData}
+                    >
+                        <Field
+                            component={TextField}
+                            name="name"
+                            value={name}
+                            error={!!errors.name && touched.name}
+                            helperText={errors.name && touched.name ? errors.name : ''}
+                            onChange={(e)=> setName(e.target.value)}
+                            fullWidth
+                            size='small'
+                            label="Name"
+                            placeholder='Enter Name'
+                            sx={{
+                                mb : '20px'
+                            }}
+                        />
+                        <Field
+                            component={TextField}
+                            name="email"
+                            value={email}
+                            error={!!errors.email && touched.email}
+                            helperText={errors.email && touched.email ? errors.email : ''}
+                            onChange={(e)=> setEmail(e.target.value)}
+                            fullWidth
+                            size='small'
+                            label="Email"
+                            placeholder='Enter email'
+                            sx={{
+                                mb : '20px'
+                            }}
+                        />
+                        <Field
+                            component={TextField}
+                            name="phone"
+                            value={phone}
+                            type="number"
+                            error={!!errors.phone && touched.phone}
+                            helperText={errors.phone && touched.phone ? errors.phone : ''}
+                            onChange={(e)=> setPhone(e.target.value)}
+                            fullWidth
+                            size='small'
+                            label="Phone Number"
+                            placeholder='Enter Phone Number'
+                            sx={{
+                                mb : '20px'
+                            }}
+                        />
+                        {/* <Field
+                            component={TextField}
+                            name="service"
+                            value={service}
+                            error={!!errors.service && touched.service}
+                            helperText={errors.service && touched.service ? errors.service : ''}
+                            onChange={(e)=> setService(e.target.value)}
+                            fullWidth
+                            size='small'
+                            label="Service"
+                            placeholder='Enter Services'
+                            sx={{
+                                mb : '20px'
+                            }}
+                            
+                        >
+                          
+                        </Field> */}
+                        <Field
+                            component={TextField}
+                            multiline
+                            rows={5}
+                            name="message"
+                            value={message}
+                            error={!!errors.message && touched.message}
+                            helperText={errors.message && touched.message ? errors.message : ''}
+                            onChange={(e)=> setMessage(e.target.value)}
+                            fullWidth
+                            size='small'
+                            label="Message"
+                            placeholder='Enter Message'
+                            sx={{
+                                mb : '20px'
+                            }}
+                        />
+                        <Button
+                            fullWidth
+                            variant="contained"
+                            type="submit"
+                            disabled={loading}
+                        >
+                            {
+                                loading
+                                ?
+                                <CircularProgress 
+                                    size={18}
+                                />
+                                :
+                                "Submit"
+                            }
+                        </Button>
+                    </Form>
+                )}
+                </Formik>
+             
               </Typography>
             </Paper>
           </Grid>
         </Grid>
-
-        <Footer />
       </Container>
+      <Footer />
     </Box>
   );
 }
