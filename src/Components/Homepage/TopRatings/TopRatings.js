@@ -4,53 +4,55 @@ import OwlCarousel from 'react-owl-carousel'
 import GradeIcon from '@mui/icons-material/Grade';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import Image1 from '../../../Assets/Images/image1.jpg'
-import Image2 from '../../../Assets/Images/image2.jpg'
-import Image3 from '../../../Assets/Images/image3.jpg'
-import Image4 from '../../../Assets/Images/image4.jpg'
-import Image5 from '../../../Assets/Images/image1.jpg'
+import Image1 from '../../../Assets/Images/cookingsub.jpg'
+import Image2 from '../../../Assets/Images/men.jpg'
+import Image3 from '../../../Assets/Images/kid.jpg'
+import Image4 from '../../../Assets/Images/watchmen.jpg'
+import Image5 from '../../../Assets/Images/ladies.jpg'
+import Image6 from '../../../Assets/Images/dryclean.jpg'
+
 
 const list = [
     {
         id : 1,
-        name :  'Test name 1',
+        name :  'cooking',
         text : 'test text 1',
         icon : Image1,
         rating : '5.0'
     },
     {
         id : 2,
-        name :  'Test name 2',
+        name :  'men',
         text : 'test text 1',
         icon : Image2,
         rating : '4.9'
     },
     {
         id : 3,
-        name :  'Test name 3',
+        name :  'kids',
         text : 'test text 1',
         icon : Image3,
         rating : '4.9'
     },
     {
         id : 4,
-        name :  'Test name 4',
+        name :  'Home Guard',
         text : 'test text 1',
         icon : Image4,
         rating : '4.8'
     },
     {
         id : 5,
-        name :  'Test name 5',
+        name :  'Boutique for Women',
         text : 'test text 1',
         icon : Image5,
         rating : '4.8'
     },
     {
         id : 6,
-        name :  'Category 6',
+        name :  'Dry Clean',
         text : 'test text 1',
-        icon : Image1,
+        icon : Image6,
         rating : '4.7'
     },
 ]

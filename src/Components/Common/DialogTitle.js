@@ -22,7 +22,7 @@ const CustomDialogTitle = (props) => {
         }}
         {...other}
     >
-      <img src={Logo} alt="company_logo" width={30} height={30}/>
+      <img src={Logo} alt="company_logo" width={70} height={30}/>
         <Typography 
             variant="h1"
             sx={{

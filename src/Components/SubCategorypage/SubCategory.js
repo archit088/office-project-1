@@ -14,7 +14,7 @@ import { API_URL } from '../../Config/config'
 import SubmitForm from './submitForm';
 
 function SubCategory(){
-    const { id } = useParams()
+    const { slug } = useParams()
     const [open, setOpen] = useState(false)
     const [isForm, setIsForm] = useState(false)
     const [imagesList, setImagesList] = useState([])
@@ -41,7 +41,7 @@ function SubCategory(){
     const getSubCategoryData = () => {
         const requestOptions = {
             method : 'GET',
-            url : `${API_URL}api/service/category/${id}`,
+            url : `${API_URL}api/service/category/${slug}`,
             headers : {
                 'Token' : localStorage.getItem('authToken')
             }
@@ -61,7 +61,7 @@ function SubCategory(){
             headers : {
                 'Token' : localStorage.getItem('authToken')
             },
-            url : `${API_URL}api/service/category/slider/${id}`,
+            url : `${API_URL}api/service/category/slider/${slug}`,
         }
         axios(requestOptions)
         .then(data=> {
@@ -75,11 +75,11 @@ function SubCategory(){
     }
 
     useEffect(()=>{
-        if(id){
+        if(slug){
             getImages()
             getSubCategoryData()
         }
-    },[id])
+    },[slug])
 
     return(
         <>

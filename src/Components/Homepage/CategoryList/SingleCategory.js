@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function SingleCategory({item}) {
     return (
         <Link
-            to={`/sub-category/${item.id}`}
+            to={`${item.slug}`}
             style={{
                 textDecoration : 'none'
             }}

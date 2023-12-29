@@ -25,7 +25,7 @@ function CategoryList() {
         setLoading(true)
         const requestOptions = {
             method : 'GET',
-            url : `${API_URL}api/service/category/all` 
+            url : `${API_URL}api/service/category/available` 
         }
         axios(requestOptions)
         .then(data=> {

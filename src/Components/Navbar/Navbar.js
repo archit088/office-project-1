@@ -135,7 +135,7 @@ export default function Navbar() {
                   src={Logo}
                   alt="logo"
                   height={70}
-                  width={70}
+                  width={150}
                   />
               </Link>
               <TextField

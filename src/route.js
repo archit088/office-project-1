@@ -43,7 +43,7 @@ const router = createBrowserRouter([
     element:<Privacypolicy/>
   },
   {
-    path:"sub-category/:id",
+    path:"/:slug",
     element:<SubCategory/>
 },
 {

@@ -58,7 +58,7 @@ function ServiceList() {
     const getList = ()=> {
         const requestOptions = {
             method : 'GET',
-            url : `${API_URL}api/service/category/latest`,
+            url : `${API_URL}api/service/category/upcoming`,
             headers : {
                 'Token' : localStorage.getItem('authToken')
             }
@@ -126,7 +126,7 @@ function ServiceList() {
                                 key={i.id}
                             >
                                 <Link
-                                    to={`/sub-category/${i.id}`}
+                                    to={`${i.slug}`}
                                     style={{
                                         textDecoration : "none"
                                     }}

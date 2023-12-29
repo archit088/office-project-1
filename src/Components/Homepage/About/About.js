@@ -1,50 +1,8 @@
 import React from "react";
-import { Box, Container, Grid, Paper, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
+import Image1d from '../../../Assets/Images/about.png'
 
-const aboutTextArray = [
-  {
-    id: "about1",
-    heading: "Test heading 1",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-    icon: "",
-  },
-  {
-    id: "about2",
-    heading: "Test heading 2",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-    icon: "",
-  },
-  {
-    id: "about3",
-    heading: "Test heading 3",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-    icon: "",
-  },
-  {
-    id: "about4",
-    heading: "Test heading 4",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-    icon: "",
-  },
-  {
-    id: "about5",
-    heading: "Test heading 5",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-    icon: "",
-  },
-  {
-    id: "about6",
-    heading: "Test heading 6",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-    icon: "",
-  },
-];
+  
 
 function About() {
   return (
@@ -71,7 +29,7 @@ function About() {
               pb: "5px",
             }}
           >
-            With company name you can do
+            WELCOME TO OUR COMPANY
           </Typography>
           <Box
             sx={{
@@ -83,39 +41,36 @@ function About() {
             }}
           />
         </Box>
-        <Grid container spacing={2}>
-          {aboutTextArray.map((i) => (
-            <Grid item md={4} key={i.id}>
-              <Paper
-                sx={{
-                  p: "20px",
-                  textAlign: "left",
-                  boxShadow: "0px 0px 8px #ccc",
-                }}
-              >
-                <Typography
-                  variant="p"
-                  sx={{
-                    fontSize: "20px",
-                    fontWeight: 500,
-                  }}
-                >
-                  {i.heading}
-                </Typography>
+        
+       
+        <Grid container spacing={6} >
+            <Grid item md={6}>
+
+          
+               
                 <Typography
                   variant="p"
                   sx={{
                     display: "block",
-                    fontSize: "15px",
+                    fontSize: "40px",
                     mt: "5px",
+                    fontWeight:"600"
                   }}
                 >
-                  {i.description}
+                    We Make Awesome IT Services For Your Newly Business   We Make Awesome IT Services For Your Newly Business
                 </Typography>
-              </Paper>
+             
             </Grid>
-          ))}
+            <Grid item md={6}> 
+              <img 
+                src={Image1d}
+                alt="About"
+                width="120%"
+               // height="100%"
+              />
+            </Grid>
         </Grid>
+     
       </Container>
     </Box>
   );

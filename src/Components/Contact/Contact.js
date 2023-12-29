@@ -9,7 +9,6 @@ import {
   Container,
   Grid,
   Paper,
-  TextField,
   Typography,
   Button,
   CircularProgress,
@@ -17,6 +16,7 @@ import {
 import Footer from "../Homepage/Footer/Footer";
 import Banner from "../Banner/Banner";
 import Navbar from "../Navbar/Navbar";
+import { TextField } from 'formik-mui'
 
 function Contact() {
   const [name, setName] = useState('')
@@ -36,7 +36,7 @@ function Contact() {
               name:name,
               phone:phone,
               email:email,
-              message:message
+              message:message,
 
             }
         }
@@ -51,7 +51,10 @@ function Contact() {
   }
 
   const initialValues = {
-     
+    name,
+    email,
+    phone,
+    message,
   }
   return (
     <Box>
@@ -129,8 +132,9 @@ function Contact() {
                         message : Yup.string().required('Required'),
                         // service : Yup.string().required('Required'),
                     })}
+                    onSubmit={submitFormData}
                 >
-                {({ errors, touched }) => (
+                {({ errors, touched, }) => (
                     <Form
                         onSubmit={submitFormData}
                     >
