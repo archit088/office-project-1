@@ -92,6 +92,8 @@ function AboutPage() {
             sx={{
               fontWeight: "500",
               fontSize: "30px",
+              color : '#000',
+              margin : '20px 0'
             }}
           >
            GOAL

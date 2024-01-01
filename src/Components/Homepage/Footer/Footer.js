@@ -3,6 +3,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { Box, Container, Divider, Grid, Typography } from "@mui/material";
+import Logo from '../../../Assets/Images/slogo11.png'
 
 function Footer() {
   return (
@@ -17,7 +18,12 @@ function Footer() {
       <Container>
         <Grid container spacing={2}>
           <Grid item md={3}>
-            <Typography
+            <img
+              src={Logo}
+              alt="My Indian Company"
+              width="60%"
+            />
+            {/* <Typography
               variant="p"
               sx={{
                 color: "#fff",
@@ -57,19 +63,19 @@ function Footer() {
               }}
             >
               Listing
-            </Typography>
-            <a href ="/contact-us" style={{ textDecoration : "none"}}>
-            <Typography
-              variant="p"
-              sx={{
-                display: "block",
-                color: "#fff",
-                mt: "10px",
-              }}
-            >
-              Contact Us
-            </Typography>
-            </a>
+            </Typography> */}
+              {/* <a href ="/contact-us" style={{ textDecoration : "none"}}>
+              <Typography
+                variant="p"
+                sx={{
+                  display: "block",
+                  color: "#fff",
+                  mt: "10px",
+                }}
+              >
+                Contact Us
+              </Typography>
+              </a> */}
           </Grid>
           <Grid item md={3}>
             <Typography
@@ -81,7 +87,7 @@ function Footer() {
                 fontSize: "18px",
               }}
             >
-              Test Heading 1
+              Helpful Links
             </Typography>
             <a href="/about-us" style={{ textDecoration : "none"}}>
               <Typography
@@ -119,6 +125,18 @@ function Footer() {
               Privacy Policy
             </Typography>
             </a>
+              <a href ="/contact-us" style={{ textDecoration : "none"}}>
+              <Typography
+                variant="p"
+                sx={{
+                  display: "block",
+                  color: "#fff",
+                  mt: "10px",
+                }}
+              >
+                Contact Us
+              </Typography>
+              </a>
           </Grid>
           <Grid item md={3}>
             
@@ -141,7 +159,7 @@ function Footer() {
                 mt: "10px",
               }}
             >
-              Address : B 299 & 300,Palam Extension, Road, Ramphal Chowk Rd,,
+              Address : B 299 & 300,Palam Extension, Road, Ramphal Chowk Rd,
               Sector 7 Dwarka, NEW DELHI - 110075
             </Typography>
 
@@ -154,6 +172,15 @@ function Footer() {
               }}
             >
               9811984442 , 0110298736
+            </Typography>
+            <Typography
+              variant="p"
+              sx={{
+                display: "block",
+                color: "#fff",
+              }}
+            >
+              info@myindiancompany.com
             </Typography>
           </Grid>
           <Grid item md={3}>
