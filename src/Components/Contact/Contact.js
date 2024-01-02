@@ -31,10 +31,10 @@ function Contact() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const submitFormData = (e) => {
-    e.preventDefault();
+  const submitFormData = () => {
+  //  e.preventDefault();
     setLoading(true);
-    const requestOptions = {
+    const requestOptions = {  
       method: "POST",
       url: `${API_URL}api/cms/contact-us`,
       data: {
