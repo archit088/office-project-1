@@ -108,7 +108,7 @@ function CategoryList() {
                                 </Grid>
                             ))
                             :
-                            list.filter(f=> [1,2,3].includes(f.id)).map(i=> (
+                            list.map(i=> (
                                 <Grid 
                                     item md={4}
                                     key={i.id}
