@@ -108,7 +108,7 @@ export default function Navbar() {
         <p>Profile</p>
       </MenuItem>
       :
-      <MenuItem>Login/Signup</MenuItem>
+      <MenuItem onClick={handleLogin}>Login/Signup</MenuItem>
       }
       
     </Menu>
