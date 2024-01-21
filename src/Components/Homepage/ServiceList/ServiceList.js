@@ -65,7 +65,7 @@ function ServiceList() {
         }
         axios(requestOptions)
         .then(data=> {
-            console.log(data)
+            // console.log(data)
             setList(data.data.data)
 
         })

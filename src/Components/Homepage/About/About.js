@@ -34,7 +34,7 @@ function About() {
           <Box
             sx={{
               position: "absolute",
-              width: "400px",
+              width: "100%",
               height: "2px",
               background: "#000",
               bottom: "0px",
@@ -44,10 +44,7 @@ function About() {
         
        
         <Grid container spacing={6} >
-            <Grid item md={6}>
-
-          
-               
+            <Grid item md={6} sm={12} xs={12}>
                 <Typography
                   variant="p"
                   sx={{
@@ -61,12 +58,12 @@ function About() {
                 </Typography>
              
             </Grid>
-            <Grid item md={6}> 
+            <Grid item md={6} sm={12} xs={12}> 
               <img 
                 src={Image1d}
                 alt="About"
-                width="120%"
-               // height="100%"
+                width="100%"
+              //  height="100%"
               />
             </Grid>
         </Grid>

@@ -6,6 +6,7 @@ import image1 from '../../Assets/Images/image1.jpg'
 import image2 from '../../Assets/Images/image2.jpg'
 import image3 from '../../Assets/Images/image3.jpg'
 import image4 from '../../Assets/Images/image4.jpg'
+import useWidth from '../../helper/widthCalculate'
 
 const list = [
     {
@@ -31,6 +32,7 @@ const list = [
 ]
 
 const Banner = () => {
+    const width = useWidth()
     return (
         <Box>
             <Box
@@ -45,7 +47,7 @@ const Banner = () => {
                     sx={{
                         position : 'absolute',
                         background : 'rgba(0,0,0,0.5)',
-                        height : '400px',
+                        height : ['xs', 'sm'].includes(width) ? '200px' : "400px",
                         width : '100%',
                         top : 0,
                         zIndex : 9
@@ -55,14 +57,15 @@ const Banner = () => {
                         <Box
                             display="flex"
                             alignItems="center"
-                            height="400px"
+                            height={['xs', 'sm'].includes(width) ? '200px' : "400px"}
                         >
                             <Box>
                                 <Typography 
                                     variant="h1"
                                     sx={{
                                         color : '#fff',
-                                        fontSize : '50px',
+                                        fontSize : ['xs', 'sm'].includes(width) ? '25px' : '50px',
+                                        fontWeight : '500',
                                         mb : '20px'
                                     }}
                                 >
@@ -71,11 +74,11 @@ const Banner = () => {
                                 <Typography 
                                     variant="h1"
                                     sx={{
-                                        fontSize : '30px',
-                                        color : '#999'
+                                        fontSize : ['xs', 'sm'].includes(width) ? '20px' : "30px",
+                                        color : '#fff'
                                     }}
                                 >
-                                   home services,baby care services,security guard services.
+                                   Home Services, Baby Care Services, Security Guard Services.
                                 </Typography>
                             </Box>
                         </Box>

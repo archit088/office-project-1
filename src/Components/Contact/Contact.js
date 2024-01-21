@@ -24,7 +24,7 @@ function SlideTransition(props) {
 }
 
 function Contact() {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -32,7 +32,6 @@ function Contact() {
   const [loading, setLoading] = useState(false);
 
   const submitFormData = () => {
-  //  e.preventDefault();
     setLoading(true);
     const requestOptions = {  
       method: "POST",

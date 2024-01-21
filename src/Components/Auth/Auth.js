@@ -5,7 +5,7 @@ import {  useLocation } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Image5 from '../../Assets/Images/image5.jpg'
 import Login from './Login/Login';
-import Signup from './Signup/Signup';
+// import Signup from './Signup/Signup';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -112,7 +112,7 @@ export default function Auth() {
                       <Login />
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                      <Signup />
+                      {/* <Signup /> */}
                     </TabPanel>
               </Paper>
             </Grid>

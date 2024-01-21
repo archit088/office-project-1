@@ -10,6 +10,7 @@ import Image3 from '../../../Assets/Images/kid.jpg'
 import Image4 from '../../../Assets/Images/watchmen.jpg'
 import Image5 from '../../../Assets/Images/ladies.jpg'
 import Image6 from '../../../Assets/Images/dryclean.jpg'
+import useWidth from '../../../helper/widthCalculate';
 
 
 const list = [
@@ -58,6 +59,7 @@ const list = [
 ]
 
 function TopRatings() {
+    const width = useWidth()
     return (
         <Box
             sx={{
@@ -97,22 +99,22 @@ function TopRatings() {
                 </Box>
                 <Box>
                     <OwlCarousel 
-                    className='owl-theme' 
-                    loop 
-                    autoplay
-                    margin={20}
-                    responsive={{
-                        0 : {
-                            items : 1
-                        },
-                        600 : {
-                            items : 2
-                        },
-                        1000 : {
-                            items : 6
-                        }
-                    }}
-                >
+                        className='owl-theme' 
+                        loop 
+                        autoplay
+                        margin={20}
+                        responsive={{
+                            0 : {
+                                items : 3
+                            },
+                            600 : {
+                                items : 2
+                            },
+                            1000 : {
+                                items : 6
+                            }
+                        }}
+                    >
                     {
                         list.map(l=> (
                             <div className="item"  key={l.id}>
@@ -124,7 +126,9 @@ function TopRatings() {
                                     <Box
                                         sx={{
                                             border : '1px solid #ccc',
-                                            height : '170px',
+                                            width : ['xs', 'sm'].includes(width) ? '120px' : '100%',
+                                            margin : '0 auto',
+                                            height : ['xs','sm'].includes(width) ? '120px' :'170px',
                                             borderRadius : '50%',
                                             backgroundImage : `url(${l.icon})`,
                                             backgroundRepeat : 'no-repeat',

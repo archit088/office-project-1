@@ -3,35 +3,12 @@ import PropTypes from 'prop-types'
 import OwlCarousel from 'react-owl-carousel'
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-// import image1 from '../../Assets/Images/image1.jpg'
-// import image2 from '../../Assets/Images/image2.jpg'
-// import image3 from '../../Assets/Images/image3.jpg'
-// import image4 from '../../Assets/Images/image4.jpg'
-
-// const list = [
-//     {
-//         "service_id": 1,
-//         "file": image1,
-//         "mime_type": "image/jpeg"
-//     },
-//     {
-//         "service_id": 2,
-//         "file": image2,
-//         "mime_type": "image/jpeg"
-//     },
-//     {
-//         "service_id": 3,
-//         "file": image3,
-//         "mime_type": "image/jpeg"
-//     },
-//     {
-//         "service_id": 4,
-//         "file": image4,
-//         "mime_type": "image/jpeg"
-//     },
-// ]
+import useWidth from '../../helper/widthCalculate';
+import { Box } from '@mui/material';
 
 function BannerSlider({height, images}) {
+    const width = useWidth()
+    const bannerHeight = ['xs', 'sm'].includes(width) ? 200 : height
   return (
     <div>
         {
@@ -55,15 +32,17 @@ function BannerSlider({height, images}) {
                     {
                         images.map(i=> (
                             <div className='item' key={i.service_id}>
-                                <img
-                                    src={i.file}
-                                    alt="service"
-                                    height={height}
-                                    width="100%"
-                                    style={{
-                                        objectFit : "cover"
-                                    }}
-                                />
+                                <Box>
+                                    <img
+                                        src={i.file}
+                                        alt="service"
+                                        height={bannerHeight}
+                                        width="100%"
+                                        style={{
+                                            objectFit : "cover"
+                                        }}
+                                    />
+                                </Box>
                             </div>
                         ))
                     }

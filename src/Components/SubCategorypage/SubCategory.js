@@ -184,6 +184,8 @@ function SubCategory(){
                     <Grid
                         item
                         md={8}
+                        sm={12}
+                        xs={12}
                     >
                         <Box
                             sx={{
@@ -198,9 +200,7 @@ function SubCategory(){
                         </Box>
                     </Grid>
                 </Grid>
-                
             </Container>
-            
             <Box
                 p="40px 0"
             >
@@ -214,6 +214,8 @@ function SubCategory(){
                                 <Grid 
                                     item
                                     md={4}
+                                    sm={12}
+                                    xs={12}
                                     key={item.id}
                                 >
                                     <SingleSubCategory 

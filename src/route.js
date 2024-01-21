@@ -10,7 +10,6 @@ import Awardpage from "./Components/Awards/Awards";
 import Contactpage from "./Components/Contact/Contact";
 import Privacypolicy from "./Components/Privacypolicy/Privacypolicy";
 import SubCategory  from   "./Components/SubCategorypage/SubCategory";
-import Subwashing from "./Components/Subwashing/Subwashing";
 
 
 const router = createBrowserRouter([
@@ -46,12 +45,10 @@ const router = createBrowserRouter([
     path:"/:slug",
     element:<SubCategory/>
 },
-{
-  path:"Subwashing",
-  element:<Subwashing/>
-}
-
-
+// {
+//   path:"Subwashing",
+//   element:<Subwashing/>
+// }
 ]);
 
 const Approute = () => {

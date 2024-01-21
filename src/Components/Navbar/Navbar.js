@@ -11,10 +11,12 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link, useNavigate } from 'react-router-dom'
 import { Button, Container, TextField } from '@mui/material';
 import Logo from '../../Assets/Images/slogo11.png'
+import useWidth from '../../helper/widthCalculate';
 // import NavbarLower from './NavbarLower';
 
 export default function Navbar() {
   const navigate = useNavigate()
+  const width = useWidth()
   const [anchorEl, setAnchorEl] = React.useState(null);
   const loggedIn = localStorage.getItem('loggedIn');
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -134,16 +136,24 @@ export default function Navbar() {
                 <img
                   src={Logo}
                   alt="logo"
-                  height={70}
-                  width={150}
+                  height={['xs', 'sm'].includes(width) ? 40 : 70}
+                  width={['xs', 'sm'].includes(width) ? 90 : 150}
                   />
               </Link>
               <TextField
                 size="small"
                 placeholder='Search'
                 sx={{
+                  padding : '0px',
                   background : '#fff',
-                  borderRadius : '4px'
+                  borderRadius : '20px',
+                  '& input' : {
+                    padding : ['xs', 'sm'].includes(width) ? '8.5px 16px' : '8px 16px',
+                    fontSize : ['xs', 'sm'].includes(width) ? '12px' : '14px'
+                  },
+                  '& fieldset' : {
+                    border : 'none'
+                  }
                 }}
               />
               <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
@@ -183,7 +193,7 @@ export default function Navbar() {
         {renderMobileMenu}
         {renderMenu}
       </Box>
-      <Box sx={{height : '75px'}} />
+      <Box sx={{height : ['xs', 'sm'].includes(width) ? '45px' : '75px'}} />
       {/* {
         lower && (
           <NavbarLower />
