@@ -78,7 +78,7 @@ function SingleSubCategory({ item, openForm, handleOpen, index }) {
                                 fontSize : '16px'
                             }}
                         />
-                        <Typography variant="p" sx={{ fontSize : '14px', fontWeight : 'bold'}}>{item.price}</Typography>
+                        <Typography variant="p" sx={{ fontSize : '14px', fontWeight : 'bold'}}>Starting at ₹{item.price}</Typography>
                         <FiberManualRecordIcon 
                             sx={{fontSize : '8px', m : '0px 10px', mt : '1px'}}
                         />

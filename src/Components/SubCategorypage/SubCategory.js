@@ -3,8 +3,8 @@ import StarIcon from '@mui/icons-material/Star';
 import Navbar from '../Navbar/Navbar'
 import Footer from '../Homepage/Footer/Footer'
 import SingleSubCategory from './SingleSubCategory'
-import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+// import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+// import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { Box, Button, Container, Dialog, DialogContent, Grid, Paper, Typography } from '@mui/material'
 import BannerSlider from '../Banner/BannerSlider';
 import CustomDialogTitle from '../Common/DialogTitle';
@@ -65,7 +65,6 @@ function SubCategory(){
         }
         axios(requestOptions)
         .then(data=> {
-            console.log(data)
             setImagesList(data.data.data)
 
         })
@@ -306,74 +305,36 @@ function SubCategory(){
                                         alignItems="center"
                                         mt="8px"
                                     >
-                                        <CurrencyRupeeIcon
-                                            sx={{
-                                                fontSize : '16px'
-                                            }}
-                                        />
-                                        <Typography variant="p" sx={{ fontSize : '14px', fontWeight : 'bold'}}>{serviceList[subCategoryId]?.price}</Typography>
-                                        <FiberManualRecordIcon 
+                                        <Typography variant="p" sx={{ fontSize : '14px', fontWeight : 'bold'}}>Starting at ₹{serviceList[subCategoryId]?.price}</Typography>
+                                        {/* <FiberManualRecordIcon 
                                             sx={{fontSize : '8px', m : '0px 10px', mt : '1px'}}
-                                        />
+                                        /> */}
                                         {/* <Typography variant="p" sx={{ fontSize : '12px'}}>{item.time}</Typography> */}
                                     </Box>
                                     <Typography variant="p">{serviceList[subCategoryId]?.description}</Typography>
-                                    {/* <ul
+                                    <img 
+                                        src={serviceList[subCategoryId]?.detail_files[0]?.file}
+                                        alt={serviceList[subCategoryId]?.detail_files[0]?.original_file_name}
                                         style={{
-                                            margin : 0,
-                                            padding : '0px',
-                                            listStyle : 'none'
+                                            width : '100%'
                                         }}
-                                    >
+                                    />
+                                    <ul>
                                         {
-                                            item.details.map((i)=> (
-                                                <li
-                                                    key={i.id}
+                                            serviceList[subCategoryId]?.variants?.map(v => (
+                                                <li key={`variant-${v.id}`}>
+                                                    <Typography
+                                                        variant="p"
+                                                        sx={{
+                                                            fontWeight : 'bold'
+                                                        }}
                                                     >
-                                                    <Box
-                                                        display="flex"
-                                                        mb="20px"
-                                                    >
-                                                        <img 
-                                                            src={cookingsub}
-                                                            height={60}
-                                                            width={60}
-                                                            style={{
-                                                                borderRadius : '8px'
-                                                            }}
-                                                        />
-                                                        <Box
-                                                            sx={{
-                                                                ml : '10px'
-                                                            }}
-                                                        >
-                                                            <Typography 
-                                                                variant="p"
-                                                                sx={{
-                                                                    fontSize : '18px',
-                                                                    fontWeight : '600',
-                                                                    display : 'block',
-                                                                    color : '#000'
-                                                                }}
-                                                            >
-                                                                {i.headText}
-                                                            </Typography>
-                                                            <Typography 
-                                                                variant="p"
-                                                                sx={{
-                                                                    fontSize : '15px',
-                                                                    fontWeight : '500',
-                                                                    color : '#666'
-                                                                }}
-                                                            >
-                                                                {i.text}
-                                                            </Typography>
-                                                        </Box>
-                                                    </Box>
+                                                        {v.name} - ₹{v.price}
+                                                    </Typography>
                                                 </li>
                                             ))
                                         }
-                                    </ul> */}
+                                    </ul>
                                 </Box>
                             </Box>
                         }
