@@ -1,1 +1,1 @@
-export const API_URL = 'https://myindiancompany.xyz/'    
+export const API_URL = 'https://mic.myindiancompany.xyz/'    

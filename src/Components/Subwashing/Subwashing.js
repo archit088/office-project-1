@@ -12,7 +12,7 @@ import Image2 from '../../Assets/Images/image2.jpg'
 import Image4 from '../../Assets/Images/image4.jpg'
 import BannerSlider from '../Banner/BannerSlider';
 // import Image9 from '../../Assets/Images/image9.jpg'
-// import Image6 from '../../Assets/Images/image6.jpg'[]
+// import Image6 from '../../Assets/Images/image6.jpg'
 
 const SubserviceList = [
     {
